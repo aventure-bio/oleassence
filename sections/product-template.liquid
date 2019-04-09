@@ -249,6 +249,8 @@
               {{ product.description }}
           </div>
 
+          <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+
       {% endif %}
 
 				{% if product.available %}
@@ -413,6 +415,8 @@
             <div class="product-description-wrapper">
               {{ product.description }}
             </div>
+
+            <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
 
         {% endif %}
 
