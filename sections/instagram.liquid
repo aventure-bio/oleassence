@@ -1,0 +1,228 @@
+{% case section.settings.colors %}
+  {% when 'white' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--white">
+  {% when 'light' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--light">
+  {% when 'accent' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--accent">
+  {% when 'dark' %}
+    <div class="homepage-sections-wrapper homepage-sections-wrapper--dark">
+{% endcase %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+
+			{% if section.settings.show-title %}
+				<div class="title-bar {{ settings.title-bar-styling }} custom-font{% if section.settings.instagram-homepage-width == 'full-width' %} instagram-wrapper--header-no-padding{% endif %}">
+					{% if settings.sm_instagram_link != empty %}
+					<a href="{{ settings.sm_instagram_link }}" target="_blank">
+					{% endif %}
+						<h2><span><i class="fab fa-instagram"></i> {{ section.settings.title | escape }}</span></h2>
+					{% if settings.sm_instagram_link != empty %}
+					</a>
+					{% endif %}
+					<div class="clear"></div>
+				</div>
+
+			{% endif %}
+
+		</div>
+	</div>
+</div>
+
+{% if section.settings.instagram-homepage-width == 'full-width' %}
+	<div class="container-fluid homepage-slider-container">
+		<div class="row">
+			<div class="page-width col-md-12">
+{% else %}
+	<div class="container">
+		<div class="row">
+			<div class="page-width col-md-12">
+{% endif %}
+
+{% capture instagram_placeholder %}
+  <div class="instagram-indiv instagram-grid-{{ section.settings.grid }}">
+    <div>{{ 'image' | placeholder_svg_tag: 'icon icon--placeholder' }}</div>
+  </div>
+{% endcapture %}
+
+		{% if section.settings.instagram-access-token != empty %}
+
+			<input type="hidden" id="token-{{ section.id }}" value="{{ section.settings.instagram-access-token }}" />
+			<script type="text/html" id="instagram-placeholder">
+				{{ instagram_placeholder }}
+			</script>
+
+			<div class="instagram-wrapper" data-id="{{ section.id }}">
+
+				<div
+					id="instafeed-{{ section.id }}"
+					data-sort-by="{{ section.settings.sort-by | default:"recent" }}"
+					data-grid="{{ section.settings.grid }}"
+					data-rows="{{ section.settings.rows }}"
+					{% if section.settings.image-padding %}class="instagram--with-padding"{% endif %}>
+				</div>
+
+			</div>
+
+		{% else %}
+
+			{% capture total_images %}{{ section.settings.grid | times: section.settings.rows }}{% endcapture %}
+
+				<div class="instagram-wrapper" data-id="{{ section.id }}">
+
+					<div id="instafeed-{{ section.id }}" {% if section.settings.image-padding %}class="instagram--with-padding"{% endif %}>
+
+						{% for i in (1..total_images) %}
+							{{ instagram_placeholder }}
+						{% endfor %}
+
+					</div>
+
+				</div>
+
+		{% endif %}
+
+			{% if section.settings.show_instagram_button %}
+			  {% if settings.sm_instagram_link != empty %}
+			  	<div class="homepage-instagram-link-btn-wrapper">
+			  		<a href="{{ settings.sm_instagram_link }}" target="_blank" class="btn btn-custom homepage-instagram-link-btn">{{ 'general.homepage.instagram_follow_us' | t }}</a>
+			  	</div>
+			  {% endif %}
+			{% endif %}
+
+		</div>
+	</div>
+</div>
+</div>
+
+{% assign instaimage = '{{image}}' %}
+{% assign instaurl = '{{link}}' %}
+
+{% schema %}
+{
+  "name": "Instagram",
+  "class": "homepage-section--instagram-wrapper wow fadeIn",
+  "settings": [
+		{
+			"type": "select",
+			"id": "colors",
+			"label": "Color scheme",
+			"default": "white",
+			"options": [
+				{
+					"value": "white",
+					"label": "White"
+				},
+				{
+					"value": "light",
+					"label": "Light"
+				},
+				{
+					"value": "accent",
+					"label": "Feature"
+				},
+				{
+					"value": "dark",
+					"label": "Dark"
+				}
+			],
+			"info": "The colors in each 'scheme' can be changed in the 'General settings' > 'Colors' section of your admin"
+		},
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Instagram"
+    },
+    {
+      "type": "checkbox",
+      "id": "show-title",
+      "label": "Show title",
+      "default": true
+    },
+		{
+			"type": "checkbox",
+			"id": "image-padding",
+			"label": "Enable image padding",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "show_instagram_button",
+			"label": "'Follow us' button",
+			"info": "Your Instagram profile URL must be set in General settings"
+		},
+    {
+      "type": "text",
+      "id": "instagram-access-token",
+      "label": "Access token [(?)](http:\/\/www.wetheme.com\/instagram-integration\/)"
+    },
+		{
+      "type": "radio",
+      "id": "instagram-homepage-width",
+      "label": "Width",
+			"options": [
+        {
+          "value": "fixed",
+          "label": "Fixed"
+        },
+        {
+          "value": "full-width",
+          "label": "Full width"
+        }
+      ],
+      "default":   "fixed"
+		},
+		{
+      "type": "range",
+      "id": "grid",
+      "min": 4,
+      "max": 8,
+      "step": 2,
+      "label": "Images per row",
+      "default": 6
+    },
+		{
+      "type": "range",
+      "id": "rows",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "label": "Rows",
+      "default": 2
+    },
+    {
+      "type": "select",
+      "id": "sort-by",
+      "label": "Sort by",
+      "default": "none",
+      "options": [
+        {
+          "value": "none",
+          "label": "Date added"
+        },
+        {
+          "value": "most-liked",
+          "label": "Most likes"
+        },
+        {
+          "value": "most-commented",
+          "label": "Most comments"
+        },
+        {
+          "value": "random",
+          "label": "Random"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instagram",
+      "category": "Social media"
+    }
+  ]
+}
+{% endschema %}
