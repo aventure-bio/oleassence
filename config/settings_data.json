@@ -126,6 +126,7 @@
         ],
         "settings": {
           "site-header-width": "container-fluid",
+          "subtitle": "Nourrissez votre peau de l'essentiel",
           "sticky_header": true,
           "logo": "shopify:\/\/shop_images\/logo.png",
           "logo_max_width": 220,

@@ -8,8 +8,17 @@
 
 <style>
   .site-header__logo-image img {
+    padding: 12px 0px;
 	  max-width: {{ section.settings.logo_max_width }}px!important;
 	  margin: 0 auto;
+  }
+
+  .site-header__subtitle {
+    font-size: 17px;
+    font-weight: 700;
+    color: #9d9f92;
+    text-align: center;
+    font-style: italic;
   }
 
   #main-navigation-wrapper{
@@ -72,6 +81,7 @@
 			{% capture alt %}{{ section.settings.logo.alt | default: shop.name }}{% endcapture %}
 			{% include 'responsive-image' with section.settings.logo, alt: image.alt, props: 'itemprop="logo"' %}
 		</a>
+    <div class="site-header__subtitle">{{ section.settings.subtitle }}</div>
 	{% else %}
 		<a class="site-header__logo-link custom-font" href="/" itemprop="url">{{ shop.name }}</a>
 	{% endif %}
@@ -552,6 +562,12 @@
           { "value": "container", "label": "Site width" }
         ],
       "default":   "container-fluid"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "subtitle"
     },
     {
       "type": "checkbox",
