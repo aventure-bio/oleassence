@@ -244,19 +244,19 @@
       {% endif %}
 
       {% if section.settings.description_position == "below" %}
-        {% assign product_description = product.description | split: '_____' %}
+        {% assign product_description = product.description | split: '/////' %}
         <div class="product-description-wrapper">
           <div class="product-description-wrapper above">
             {{product_description[0]}}
           </div>
           {% assign product_categories = product_description[1] | split: '$$$$$' %}
           {% for category in product_categories %}
-          {% assign category_parts = category | split: '---->' %}
+          {% assign category_parts = category | split: '*****' %}
             <button class="product-description-collapsible">{{ category_parts[0] }}</button>
             <div class="product-description-content">
             {% assign category_subparts = category_parts[1] | split: '-----' %}
               {% for subpart in category_subparts %}
-              {% assign final_blocks = subpart | split: '-->' %}
+              {% assign final_blocks = subpart | split: '+++++' %}
                 <h3>{{ final_blocks[0] }}</h3>
                 <p>{{ final_blocks[1] }}</p>
               {% endfor %}
@@ -424,19 +424,19 @@
 
         {% if section.settings.description_position == "above" %}
 
-          {% assign product_description = product.description | split: '_____' %}
+          {% assign product_description = product.description | split: '/////' %}
           <div class="product-description-wrapper">
             <div class="product-description-wrapper above">
               {{product_description[0]}}
             </div>
             {% assign product_categories = product_description[1] | split: '$$$$$' %}
             {% for category in product_categories %}
-            {% assign category_parts = category | split: '---->' %}
+            {% assign category_parts = category | split: '*****' %}
               <button class="product-description-collapsible">{{ category_parts[0] }}</button>
               <div class="product-description-content">
               {% assign category_subparts = category_parts[1] | split: '-----' %}
                 {% for subpart in category_subparts %}
-                {% assign final_blocks = subpart | split: '-->' %}
+                {% assign final_blocks = subpart | split: '+++++' %}
                   <h3>{{ final_blocks[0] }}</h3>
                   <p>{{ final_blocks[1] }}</p>
                 {% endfor %}
