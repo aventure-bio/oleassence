@@ -257,8 +257,10 @@
             {% assign category_subparts = category_parts[1] | split: '-----' %}
               {% for subpart in category_subparts %}
               {% assign final_blocks = subpart | split: '+++++' %}
-                <h3>{{ final_blocks[0] }}</h3>
-                <p>{{ final_blocks[1] }}</p>
+              	<div class="product-description-content-line">
+                  <h3>{{ final_blocks[0] }}</h3>
+                  <p>{{ final_blocks[1] }}</p>
+                </div>
               {% endfor %}
             </div>
           {% endfor %}
@@ -437,8 +439,10 @@
               {% assign category_subparts = category_parts[1] | split: '-----' %}
                 {% for subpart in category_subparts %}
                 {% assign final_blocks = subpart | split: '+++++' %}
+                <div class="product-description-content-line">
                   <h3>{{ final_blocks[0] }}</h3>
                   <p>{{ final_blocks[1] }}</p>
+                </div>
                 {% endfor %}
               </div>
             {% endfor %}

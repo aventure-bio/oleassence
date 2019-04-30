@@ -52,6 +52,14 @@ $dropdown-item-height: 50px !default;
 $off-black: rgba(0, 0, 0, 0.87) !default;
 $select-fake-input-padding:13px 16px;
 
+// Oleassence Custom Colors
+$oleo-dark-grey: #505050;
+$oleo-medium-grey: #808080;
+$oleo-light-grey: #d4d4d4;
+$oleo-lighter-grey: #ebebeb;
+$oleo-brown: #9e9f91;
+$oleo-light-yellow: #ffe47b;
+
 // Color schemes
 
 $colorSchemeLightBackground: {{ settings.colorSchemeLightBackground }};
@@ -115,6 +123,10 @@ $navigationFontSize: {{ settings.typography-menu-font-size }}px;
 $announcementBarFontStack: {{ announcement_bar_font.family }}, {{ announcement_bar_font.fallback_families }};
 
 $baseFontSize: {{ settings.typography-body-font-size }}px; // Henceforth known as 1em
+
+/* Load Custom Fonts */
+@import url('https://fonts.googleapis.com/css?family=Vollkorn');
+
 
 /*============================================================================
   #Core Styles
@@ -183,6 +195,7 @@ header#site-header .nav{
 
 h1.product-description-header{
 	font-size: {{ settings.product-page-font-size }}px;
+  	text-transform: uppercase;
 }
 
 .dropdown-menu > li > a{
@@ -533,7 +546,8 @@ a.dropdown-toggle .caret{
 }
 
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus{
-	background: none;
+	background: $oleo-dark-grey;
+  	color: #fff;
 }
 
 .dropdown-menu {
@@ -705,6 +719,16 @@ a.dropdown-toggle .caret{
   color: {{ settings.sticky-header-text-colour }};
 }
 
+.sticky-header-menu a:hover,
+.sticky-header-menu #main-navigation-wrapper a:hover,
+.sticky-header-menu #main-navigation-wrapper .dropdown-menu a:hover{
+  background: none;
+}
+
+.sticky-header-menu .nav .open a {
+  background: none;
+}
+
 .sticky-header-menu{
   border-bottom: 1px solid {{ settings.sticky-header-border-colour }};
 }
@@ -734,7 +758,7 @@ header#site-header{
 	color: $headerText;
 	font-size: 12px;
 	line-height: 12px;
-	padding: 20px 0;
+	padding: 15px 0;
 	z-index: 805000;
 	position: relative;
 
@@ -966,7 +990,7 @@ div#main{
   width: 25%;
   right: 0;
 	&.expanded{
-		transform: translateY(0);
+		transform: translateY(50%);
 	}
 }
 
@@ -1058,7 +1082,8 @@ img[data-sizes="auto"] { display: block; width: 100%; }
 
 .nav > li > a:hover,
 .nav > li > a:focus{
-	background: none !important;
+	background: $oleo-dark-grey;
+  	color: #fff;
 }
 
 .dropdown-menu > li > a:hover,
@@ -1321,6 +1346,8 @@ input{
 
 .text-advert-section .grid__item span.text-advert-section--header{
   font-size: $baseFontSize;
+  text-transform: uppercase;
+  font-weight: 600;
   padding: 0 10px;
   margin: 0;
 }
@@ -1351,7 +1378,7 @@ $colorSchemeDarkText
  */
 
 .shopify-section .homepage-sections-wrapper{
-  padding: 50px 0;
+  padding: 40px 0;
 }
 
 .shopify-section .homepage-sections-wrapper--white{
@@ -1748,6 +1775,7 @@ $colorSchemeDarkText
 
 .template-index #shopify-section-footer{
 	margin-top: 0;
+  	border-top: solid 1px $oleo-medium-grey;
 }
 
 .homepage-section--indiv-product-wrapper button#purchase{
@@ -2054,7 +2082,7 @@ header#site-header ul.cart-link a{
 }
 
 .cart-link a{
-	font-size: 12px;
+	font-size: 16px;
 }
 
 .cart-link{
@@ -2758,10 +2786,13 @@ ul#product-nav li ul li a{
 }
 
 #main-navigation-wrapper .dropdown-menu{
-	background: $menuBackground;
+	background: $headerBackground;
 }
 
-#main-navigation-wrapper .dropdown-menu a,
+#main-navigation-wrapper .dropdown-menu a{
+	color: $headerText;
+}
+
 #main-navigation-wrapper a{
 	color: $menuText;
 }
@@ -3238,7 +3269,7 @@ footer a:hover{
 	padding: 10px 0 30px 0;
 	color: $headerText;
 	font-size: 12px;
-	margin-top: 40px;
+	margin-top: 30px;
 }
 
 #site-header .top-menu{
@@ -3688,7 +3719,7 @@ ul#sm-icons li{
 
 .notification-bar{
 	text-align: center;
-	padding: 10px 0;
+	padding: 5px 0;
 }
 
 .notification-bar p{
@@ -5233,6 +5264,7 @@ audio:not([controls]) { display: none; }
 .spr-summary .spr-summary-actions-newreview{
   position: absolute;
   right: 0;
+  top: -40px;
 }
 
 .template-product .spr-badge {
@@ -6829,28 +6861,364 @@ select:disabled {
   font-family:monospace;
 }
 
+/* Custom styling ==========================================================*/
+
+// I- Product page: description boxes
+
 .product-description-collapsible {
-	background-color: #eee;
-	color: #444;
-	cursor: pointer;
-	padding: 18px;
-	width: 100%;
-	border: none;
-	text-align: left;
-	outline: none;
-	font-size: 15px;
+  background-color: #fff;
+  color: $oleo-medium-grey;
+  cursor: pointer;
+  padding: 20px 0 5px 0;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 17px;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  border-bottom: solid 2px #fff;
+}
+.product-description-collapsible:after {
+  content: "";
+  border-top: 5px solid;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  margin-left: 8px;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .product-description-active, .product-description-collapsible:hover {
-	background-color: #ccc;
+  background-color: #fff;
+  border-bottom: solid 2px $oleo-medium-grey;
+  color: $oleo-dark-grey;
+}
+.product-description-active:after {
+  content: "";
+  border-bottom: 5px solid;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-top: 0!important;
+  margin-left: 8px;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 /* Style the collapsible content. Note: hidden by default */
 .product-description-content {
-	padding: 0 18px;
-	background-color: white;
+	padding: 0 15px;
+  	border-left: solid 1px $oleo-light-grey;
+    border-right: solid 1px $oleo-light-grey;
+    border-bottom: solid 1px $oleo-light-grey;
+	background-color: #fff;
 	max-height: 0;
 	overflow: hidden;
 	transition: max-height 0.2s ease-out;
+}
+.product-description-content-line {
+  display: flex;
+  align-items: center;
+  h3 {
+    text-transform: uppercase;
+    margin: 10px 0;
+    font-size: 13px;
+    min-width: 33%;
+    padding-right: 10px;
+    color: $oleo-medium-grey;
+    border-right: solid 1px $oleo-medium-grey;
+    @media screen and (min-width: 580px) {
+		min-width: 24%;
+	}
+  }
+  p {
+    font-size: 16px;
+    margin: 10px 0 10px 15px;
+    font-family: Lato, sans-serif;
+  }
+}
+
+// II- Product page: product reviews styling
+
+#shopify-product-reviews {
+  overflow: visible!important;
+}
+.spr-header-title {
+  position: relative;
+  top: -15px;
+}
+.spr-header {
+  border-top: solid 2px $oleo-light-grey;
+}
+
+// III- Homepage: USPs row
+
+.usp_container {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 650px) {
+    flex-direction: column;
+  }
+}
+.usp_cell {
+  width: 50%;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Vollkorn', serif;
+  font-size: 17px;
+  color: $oleo-medium-grey;
+  font-style: italic;
+  @media (max-width: 650px) {
+    width: 100%!important;
+    justify-content: initial!important;
+  }
+  span {
+    padding-top: 3px;
+  }
+}
+.usp_cell_left {
+  border-right: solid 2px #ebebeb;
+  @media (max-width: 650px) {
+    border-right: 0!important;
+  }
+}
+.usp_cell_img {
+  padding-right: 20px;
+  display: flex;
+  justify-content: center;
+  @media (max-width: 650px) {
+    min-width: 25%;
+  }
+  img {
+  height: 30px;
+  margin: 0;
+  }
+}
+
+// IV- Header: Custom border-top on menu bar
+
+.main-navigation-wrapper-main {
+  border-top: solid 3px $oleo-brown;
+}
+#main-navigation-wrapper {
+  border-top: solid 2px white;
+}
+
+// V- Header: Force the size of search/login/cart icons
+
+#site-header .fal {
+  font-weight: 500!important;
+  font-size: 26px!important;
+}
+
+// VI- Contact page: styling
+
+.contact-options {
+  width: 100%;
+  padding-bottom: 25px;
+}
+.contact-options-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+  @media (max-width: 560px) {
+    flex-direction: column;
+  }
+}
+.contact-options-cell {
+  width: 48%;
+  border: solid 1px $oleo-light-grey;
+  padding-bottom: 15px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  a {
+    padding-top: 15px;
+  }
+  a:after {
+    content: "";
+    border-top: 5px solid transparent;
+    border-right: 0;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid;
+    border-top: 5px solid transparent;
+    margin-left: 8px;
+    vertical-align: middle;
+    display: inline-block;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 560px) {
+    width: 100%;
+  }
+}
+.contact-options-title {
+  text-transform: uppercase;
+  font-size: 16px;
+  color: $oleo-medium-grey;
+  border-bottom: solid 1px $oleo-light-grey;
+  background-color: $oleo-lighter-grey;
+  padding: 15px;
+  &:before {
+    display: block;
+    font-size: 42px;
+    color: $oleo-dark-grey;
+  }
+  span {
+	font-size: 22px;
+    color: $oleo-dark-grey;
+  }
+}
+.contact-options-purpose {
+  padding: 15px 30px;
+  border-bottom: solid 1px $oleo-light-grey;
+  text-align: left;
+  &:before {
+    content: "id\00e9 al pour";
+    font-size: 13px;
+    padding: 2px 6px;
+    background-color: $oleo-light-yellow;
+    color: $oleo-dark-grey;
+    text-transform: uppercase;
+    position: relative;
+    left: -5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+  }
+}
+.contact-email:before {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f1fa";
+}
+.contact-facebook:before {
+  font-family: "Font Awesome 5 Brands";
+  content: "\f082";
+}
+.contact-blog:before {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f4a6";
+}
+.contact-letter:before {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f0e0";
+}
+.contact-options-details {
+  padding: 15px 15px 0 15px;
+  a:after {
+    border: none;
+    margin: 0;
+  }    
+}
+
+// VII- Footer: Add circle after on h3
+
+footer h3:after {
+  content: "\2022";
+  display: block;
+}
+
+// VIII- Footer: SEO text styling
+
+.footer-text-content {
+  padding: 30px 0;
+  margin-top: 30px;
+  border-top: dotted 1px $oleo-medium-grey;
+  border-bottom: dotted 1px $oleo-medium-grey;
+  font-size: 12px;
+}
+
+// IX- Homepage: Testimonials button styling */
+
+.testimonials-button {
+  display: flex;
+  justify-content: center;
+  a {
+    margin-bottom: 0!important;
+  }
+}
+
+// X- About us: styling
+.about-container {
+  width: 100%;
+  h4 {
+    font-family: 'Vollkorn', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: $oleo-medium-grey;
+    padding-bottom: 5px;
+  }
+  h4:after {
+  	content: "\2022";
+  	display: block;
+    color: $oleo-dark-grey;
+    font-style: normal;
+  }
+}
+#about-approche {
+  width: 100%;
+  height: 360px;
+  background-image: url('//cdn.shopify.com/s/files/1/0074/4095/7495/files/os-jpg.jpg');
+  background-size: 500px auto;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: solid 2px $oleo-light-grey;
+}
+.about-approche-text {
+  width: 70%;
+  padding: 15px;
+  text-align: center;
+  background-color: rgba(255,255,255,0.8);
+}
+#about-christine {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: $oleo-lighter-grey;
+  border-bottom: solid 2px $oleo-light-grey;
+  @media (max-width: 560px) {
+    flex-direction: column;
+  }
+}
+.about-christine-text {
+  text-align: center;
+  padding: 20px;
+}
+.about-christine-img {
+  min-width: 200px;
+}
+#about-valeurs {
+  width: 100%;
+  height: 540px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.about-valeurs-text {
+  width: 56%;
+  padding: 15px;
+  text-align: center;
+  background-color: rgba(255,255,255,0.8);
+  span {
+    font-family: 'Vollkorn', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #808080;
+  }
+  li {
+    padding-bottom: 8px;
+  }
 }

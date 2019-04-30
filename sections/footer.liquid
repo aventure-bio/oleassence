@@ -116,13 +116,15 @@
 
 		</div>
 	</div>
-
+	<div class="container footer-text-content">
+      {{ section.settings.seotext }}
+    </div>
 	<div class="bottom-footer">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
 					<p>
-						<a href="/">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}</a> | {{ powered_by_link }} | <a href="http://www.wetheme.com" title="Designed by WeTheme">{{ 'layout.footer.designed_by' | t }}</a>
+						<a href="/">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}</a> - Tous droits réservés<br />SIRET&nbsp;: 5301&nbsp;60&nbsp;035&nbsp;00016 - TVA intracommunautaire&nbsp;: FR&nbsp;23&nbsp;53&nbsp;01600&nbsp;35
 					</p>
 				</div>
 
@@ -151,6 +153,12 @@
       "id": "show_methods_of_payment",
       "label": "Payment icons",
       "default": true
+    },
+    {
+  	  "type": "richtext",
+  	  "id": "seotext",
+  	  "label": "SEO text content",
+  "default": "<p>SEO text</p>"
     }
   ],
   "blocks": [

@@ -27,7 +27,7 @@
       "current_page": "Page {{ current }} sur {{ total }}"
     },
     "newsletter_form": {
-      "header": "Joignez-vous à notre liste d'envoi",
+      "header": "Recevez notre newsletter",
       "header_text": "Adresse e-mail:",
       "newsletter_text": "Entrez e-mail",
       "submit": "Joindre",
