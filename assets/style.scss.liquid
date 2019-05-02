@@ -127,6 +127,18 @@ $baseFontSize: {{ settings.typography-body-font-size }}px; // Henceforth known a
 /* Load Custom Fonts */
 @import url('https://fonts.googleapis.com/css?family=Vollkorn');
 
+/*============================================================================
+  #Utilities
+==============================================================================*/
+
+.m-10 {
+	margin: 10px;
+}
+
+.v-align-sub {
+	vertical-align: sub;
+}
+
 
 /*============================================================================
   #Core Styles
@@ -7119,7 +7131,7 @@ select:disabled {
   a:after {
     border: none;
     margin: 0;
-  }    
+  }
 }
 
 // VII- Footer: Add circle after on h3
@@ -7221,4 +7233,16 @@ footer h3:after {
   li {
     padding-bottom: 8px;
   }
+}
+
+.sticky-logo {
+	border-right: 1px solid #c6c6c6;
+	min-width: 150px;
+	min-height: 66px;
+	max-height: 66px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	white-space: nowrap;
+	padding: 0 10px;
 }

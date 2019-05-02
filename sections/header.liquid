@@ -37,8 +37,8 @@
   }
 
   .sticky-header-wrapper .mega-menu-wrapper .mega-menu .dropdown-menu {
-    left: -{{ sticky-header-offset }}px;
-    width: calc(100% + 2 * {{ sticky-header-offset }}px);
+    left: -{{ sticky-header-offset | plus: 170 }}px;
+    width: calc(100% + 2 * {{ sticky-header-offset | plus: 170 }}px);
   }
 
   #site-header .far,
@@ -79,7 +79,7 @@
 
 {% capture header_logo %}
 	{% if section.settings.logo %}
-		<a href="/" itemprop="url" class="site-header__logo-image">
+		<a href="/" itemprop="url" class="site-header__logo-image" id="main-logo">
 			{% capture alt %}{{ section.settings.logo.alt | default: shop.name }}{% endcapture %}
 			{% include 'responsive-image' with section.settings.logo, alt: image.alt, props: 'itemprop="logo"' %}
 		</a>

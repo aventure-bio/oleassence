@@ -1183,6 +1183,7 @@ function load_sticky_header() {
     var $menu_wrapper = $sticky.find('.sticky-header-menu');
     // copy main menu
     $('#main-navigation-wrapper').clone().appendTo($menu_wrapper);
+    ($('<div class="sticky-logo"></div>').append($('#main-logo').clone())).prependTo($menu_wrapper);
 
     // copy menu icons (cart, search, ...)
     $('.cart-link li a').each(function () {
