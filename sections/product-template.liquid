@@ -237,7 +237,26 @@
         {% endif %}
       </div>
 
-			<h1 class="custom-font product-description-header{% if section.settings.show_reviews %} reviews-enabled{% endif %}">{{ product.title }}</h1>
+      {% if product.title contains '/////' %}
+        {% assign title_block = product.title | split: '/////' %}
+			  <h1 class="custom-font product-description-header{% if section.settings.show_reviews %} reviews-enabled{% endif %}">{{ title_block[0] }}</h1>
+        <h4 class="custom-font product-description-header m-0">{{ title_block[1] }}</h4>
+      {% else %}
+        <h1 class="custom-font product-description-header{% if section.settings.show_reviews %} reviews-enabled{% endif %}">{{ product.title }}</h1>
+      {% endif %}
+      <div class="m-10">
+        {% for option in product.options_with_values %}
+          {% if option.name == "Contenance" and option.values.size == 1 %}
+            <img src="{{ 'flacon-pipette.png' | asset_url }}" style="margin-right: 5px; height: auto; width: 10px" title="Contenance" />
+            <span class="v-align-sub">{{ option.values | first }}</span>
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% if product.tags contains 'natureprogres' %}
+        <div class="m-10">
+          <img src="{{ 'natureprogres.png' | asset_url }}" style="height: auto; width: 30px" title="Nature & Progrès" />
+        </div>
+      {% endif %}
 
       {% if section.settings.show_reviews %}
         <a class="product-template--reviews-header" href="#shopify-product-reviews"><span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span></a>
@@ -258,8 +277,15 @@
               {% for subpart in category_subparts %}
               {% assign final_blocks = subpart | split: '+++++' %}
               	<div class="product-description-content-line">
-                  <h3>{{ final_blocks[0] }}</h3>
-                  <p>{{ final_blocks[1] }}</p>
+                  {% unless final_blocks[0] == blank %}
+                    <h3>{{ final_blocks[0] }}</h3>
+                  {% endunless %}
+                  {% if final_blocks[1] contains "=====" %}
+                    {% assign full_link = final_blocks[1] | split: '=====' %}
+                    <p><a href="{{ full_link[0] }}" target="_blank">{{ full_link[1] }}</a></p>
+                  {% else %}
+                    <p>{{ final_blocks[1] }}</p>
+                  {% endif %}
                 </div>
               {% endfor %}
             </div>
@@ -329,27 +355,29 @@
                 {% if section.settings.product_variant_style == 'dropdowns' %}
 
                   {% for option in product.options_with_values %}
-                    <div class="{% if section.settings.image_size == 'large' %}col-md-12{% else %}col-md-6{% endif %} col-sm-12 col-xs-12{% if hide_default_title == true %} hide{% endif %}">
-                      <div class="input-field col s12 m6 materialize-select">
+                    {% if option.values.size > 1 %}
+                      <div class="{% if section.settings.image_size == 'large' %}col-md-12{% else %}col-md-6{% endif %} col-sm-12 col-xs-12{% if hide_default_title == true %} hide{% endif %}">
+                        <div class="input-field col s12 m6 materialize-select">
                           <select class="icons materialize" id="SingleOptionSelector-{{ forloop.index0 }}">
+                            {% if pick_an_option and option.values.size > 1 %}
+                              <option value="" selected="selected">Pick a {{ option.name }}</option>
+                            {% endif %}
+                            {% for value in option.values %}
                               {% if pick_an_option and option.values.size > 1 %}
-                                <option value="" selected="selected">Pick a {{ option.name }}</option>
+                                  {% assign props = '' %}
+                              {% elsif option.selected_value == value %}
+                                  {% assign props = 'selected' %}
+                              {% else %}
+                                {% assign props = '' %}
                               {% endif %}
-                              {% for value in option.values %}
-                                  {% if pick_an_option and option.values.size > 1 %}
-                                      {% assign props = '' %}
-                                  {% elsif option.selected_value == value %}
-                                      {% assign props = 'selected' %}
-                                  {% else %}
-                                    {% assign props = '' %}
-                                  {% endif %}
-                                  <option {{ props }} value="{{ value | escape }}">{{ value }}</option>
-                              {% endfor %}
+                              <option {{ props }} value="{{ value | escape }}">{{ value }}</option>
+                            {% endfor %}
                           </select>
                           <label for="SingleOptionSelector-{{ forloop.index0 }}">{{ option.name }}</label>
+                        </div>
                       </div>
-                   </div>
-                 {% endfor %}
+                    {% endif %}
+                  {% endfor %}
 
                 {% else %}
 
@@ -440,8 +468,15 @@
                 {% for subpart in category_subparts %}
                 {% assign final_blocks = subpart | split: '+++++' %}
                 <div class="product-description-content-line">
-                  <h3>{{ final_blocks[0] }}</h3>
-                  <p>{{ final_blocks[1] }}</p>
+                  {% unless final_blocks[0] == blank %}
+                    <h3>{{ final_blocks[0] }}</h3>
+                  {% endunless %}
+                  {% if final_blocks[1] contains "=====" %}
+                    {% assign full_link = final_blocks[1] | split: '=====' %}
+                    <p><a href="{{ full_link[0] }}" target="_blank">{{ full_link[1] }}</a></p>
+                  {% else %}
+                    <p>{{ final_blocks[1] }}</p>
+                  {% endif %}
                 </div>
                 {% endfor %}
               </div>
