@@ -23,6 +23,8 @@
   {% assign on_sale = true %}
 {% endif %}
 
+{% assign product_subtitle_description = product.description | split: '.....' %}
+
 <meta itemprop="name" content="{{ product.title }}{% unless current_variant.title == 'Default Title' %} - {{ current_variant.title }}{% endunless %}">
 <meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
 <meta itemprop="brand" content="{{ product.vendor }}">
@@ -237,13 +239,10 @@
         {% endif %}
       </div>
 
-      {% if product.title contains '/////' %}
-        {% assign title_block = product.title | split: '/////' %}
-			  <h1 class="custom-font product-description-header{% if section.settings.show_reviews %} reviews-enabled{% endif %}">{{ title_block[0] }}</h1>
-        <h4 class="custom-font product-description-header m-0">{{ title_block[1] }}</h4>
-      {% else %}
-        <h1 class="custom-font product-description-header{% if section.settings.show_reviews %} reviews-enabled{% endif %}">{{ product.title }}</h1>
-      {% endif %}
+			<h1 class="custom-font product-description-header{% if section.settings.show_reviews %} reviews-enabled{% endif %}">{{ product.title }}</h1>
+      {% unless product_subtitle_description[0] == blank %}
+        <h4 class="custom-font product-description-header m-0">{{ product_subtitle_description[0] }}</h4>
+      {% endunless %}
       <div class="m-10">
         {% for option in product.options_with_values %}
           {% if option.name == "Contenance" and option.values.size == 1 %}
@@ -263,7 +262,7 @@
       {% endif %}
 
       {% if section.settings.description_position == "below" %}
-        {% assign product_description = product.description | split: '/////' %}
+        {% assign product_description = product_subtitle_description[1] | split: '/////' %}
         <div class="product-description-wrapper">
           <div class="product-description-wrapper above">
             {{product_description[0]}}
@@ -454,7 +453,7 @@
 
         {% if section.settings.description_position == "above" %}
 
-          {% assign product_description = product.description | split: '/////' %}
+          {% assign product_description = product_subtitle_description[1] | split: '/////' %}
           <div class="product-description-wrapper">
             <div class="product-description-wrapper above">
               {{product_description[0]}}
