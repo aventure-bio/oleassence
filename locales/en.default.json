@@ -242,6 +242,7 @@
       "last_name": "Last Name",
       "email": "Email",
       "password": "Password",
+      "optin_box": "Subscribe to stay updated with new products and offers!",
       "submit": "Create",
       "cancel": "Return to Store"
     }

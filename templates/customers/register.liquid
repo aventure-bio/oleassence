@@ -33,7 +33,13 @@
 	        <label for="password" class="login">{{ 'customer.register.password' | t }}</label>
 	        <input type="password" class="form-control" name="customer[password]" id="password" size="30" />
 	      </div>
-
+  
+  		  <div id="optin" class="clearfix large_form">
+            <input type="hidden" name="customer[accepts_marketing]" value="" />
+            <input type="checkbox" name="customer[accepts_marketing]" checked="checked" />
+            {{ 'customer.register.optin_box' | t }}
+  		  </div> 
+  
 	      <div class="action_bottom">
 	        <input class="btn btn-success" type="submit" value="{{ 'customer.register.submit' | t }}" />
 	      </div>

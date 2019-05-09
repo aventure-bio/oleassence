@@ -242,6 +242,7 @@
       "last_name": "Nom de famille",
       "email": "Email",
       "password": "Mot de passe",
+      "optin_box": "Je souhaite recevoir la newsletter Oleassence.",
       "submit": "Créer",
       "cancel": "Retour à la boutique"
     }
