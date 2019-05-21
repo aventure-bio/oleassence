@@ -4477,7 +4477,7 @@ input#purchase, button#purchase, a#purchase{
 
 .product-page--pricing{
   padding-left: 0;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 
   li{
     list-style-type: none;
@@ -4894,7 +4894,12 @@ ul#product-thumbnails li{
 
 .product-description-header{
 	margin-top: 0px;
-	margin-bottom: 30px;
+	margin-bottom: 15px;
+  	h4 {
+      p{
+        font-size: 16px!important;
+      }
+    }
 }
 
 .selector-wrapper select{
@@ -4908,7 +4913,9 @@ ul#product-thumbnails li{
 
 .selector-wrapper label{
 	text-transform: uppercase;
-	font-size: 12px;
+	font-size: 16px;
+  	color: $oleo-medium-grey;
+    font-weight: 400;
 	width: 100%;
 
 	.no-js & {
@@ -5281,9 +5288,9 @@ audio:not([controls]) { display: none; }
   top: -40px;
 }
 
-.template-product .spr-badge {
+/* .template-product .spr-badge {
     margin-bottom: 20px;
-}
+} */
 
 /* @group Popups */
 
@@ -6888,10 +6895,10 @@ select:disabled {
   border: none;
   text-align: left;
   outline: none;
-  font-size: 17px;
+  font-size: 16px;
   text-transform: uppercase;
   font-family: 'Lato', sans-serif;
-  font-weight: bold;
+  font-weight: 400;
   border-bottom: solid 2px #fff;
 }
 .product-description-collapsible:after {
@@ -6937,21 +6944,32 @@ select:disabled {
   align-items: center;
   h3 {
     text-transform: uppercase;
-    margin: 10px 0;
-    font-size: 13px;
+    margin: 10px 15px 10px 0;
+    font-size: 12px;
     min-width: 33%;
     padding-right: 10px;
+    text-align: center;
     color: $oleo-medium-grey;
-    border-right: solid 1px $oleo-medium-grey;
+    border-right: dotted 1px $oleo-light-grey;
     @media screen and (min-width: 580px) {
 		min-width: 24%;
 	}
   }
   p {
     font-size: 16px;
-    margin: 10px 0 10px 15px;
+    margin: 10px 0;
     font-family: Lato, sans-serif;
   }
+}
+.product-description-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: solid 1px $oleo-light-grey;
+  padding-top: 15px;
+}
+.natureprogres {
+  padding: 15px 0;
 }
 
 // II- Product page: product reviews styling
@@ -6964,7 +6982,7 @@ select:disabled {
   top: -15px;
 }
 .spr-header {
-  border-top: solid 2px $oleo-light-grey;
+  border-top: solid 1px $oleo-light-grey;
 }
 
 // III- Homepage: USPs row
@@ -7486,4 +7504,22 @@ footer h3:after {
   font-size: 18px;
   padding: 5px;
   background-color: #ffe47b;
+}
+
+// XIV- Category pages styling
+.category-container {
+  width: 100%;
+  display: flex;
+}
+.category-img {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  img {
+    max-width: 250px;
+    max-height: 250px;
+  }
+}
+.category-description {
+  padding: 15px;
 }

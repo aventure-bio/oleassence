@@ -67,6 +67,11 @@
 	{{ 'custom.js' | asset_url | script_tag }}
 	{{ 'sections.js' | asset_url | script_tag }}
 
+	<script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.4/mapbox-gl-geocoder.min.js'></script>
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.4/mapbox-gl-geocoder.css' type='text/css' />
+
 </head>
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} flexbox-wrapper{% unless settings.animations_enabled %} animations-disabled{% endunless %}">
@@ -121,7 +126,7 @@
         moneyFormat: {{ shop.money_format | json }}
     };
 	</script>
-  
+
   	<!-- Google Reviews Badge snippet -->
   	<!-- <script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer></script>
   	<script>
@@ -136,7 +141,7 @@
         lang: 'fr'
       };
   	</script> -->
-  
+
 </body>
 
 </html>

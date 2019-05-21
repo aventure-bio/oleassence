@@ -243,6 +243,9 @@
       "email": "Email",
       "password": "Mot de passe",
       "optin_box": "Je souhaite recevoir la newsletter Oleassence.",
+      "pro": "Je suis un professionnel.",
+      "company": "Raison sociale",
+      "siret": "SIRET",
       "submit": "Créer",
       "cancel": "Retour à la boutique"
     }

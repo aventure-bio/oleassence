@@ -47,7 +47,7 @@
     "typography-menu-font-size": 16,
     "menu-case": "menu-upper-case",
     "product-page-font-size": 24,
-    "add-to-cart-font-size": 20,
+    "add-to-cart-font-size": 16,
     "add-to-cart-text-transform": "uppercase",
     "header_font_size": 20,
     "pop-up-text-header-text-size": 36,
@@ -394,9 +394,9 @@
           "show-vendor": false,
           "hover-effect": "zoom",
           "collection_image_enable": false,
-          "sort_enable": true,
+          "sort_enable": false,
           "tags_enable": true,
-          "match-height": false,
+          "match-height": true,
           "show_reviews": true,
           "enable_collection_sidebar": false
         }

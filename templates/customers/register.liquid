@@ -33,22 +33,51 @@
 	        <label for="password" class="login">{{ 'customer.register.password' | t }}</label>
 	        <input type="password" class="form-control" name="customer[password]" id="password" size="30" />
 	      </div>
-  
-  		  <div id="optin" class="clearfix large_form">
-            <input type="hidden" name="customer[accepts_marketing]" value="" />
-            <input type="checkbox" name="customer[accepts_marketing]" checked="checked" />
-            {{ 'customer.register.optin_box' | t }}
-  		  </div> 
-  
+
+				<div id="pro" class="clearfix large_form">
+					<input type="hidden" name="customer[pro]" value="" />
+					<input type="checkbox" name="customer[pro]" onchange='handleChange(this);' />
+					{{ 'customer.register.pro' | t }}
+  		  </div>
+
+				<div id="pro_fields" style="display:none">
+					<div id="company" class="clearfix large_form">
+						<label for="company" class="login">{{ 'customer.register.company' | t }}</label>
+						<input type="text" class="form-control" name="customer[note][Company]" id="company"  size="30" {% if form.company %}value="{{ form.company }}"{% endif %}>
+					</div>
+
+					<div id="siret" class="clearfix large_form">
+						<label for="siret" class="login">{{ 'customer.register.siret' | t }}</label>
+						<input type="text" class="form-control" name="customer[note][Siret]" id="siret"  size="30" {% if form.siret %}value="{{ form.siret }}"{% endif %}>
+					</div>
+				</div>
+
+					<div id="optin" class="clearfix large_form">
+						<input type="hidden" name="customer[accepts_marketing]" value="" />
+						<input type="checkbox" name="customer[accepts_marketing]" checked="checked" />
+						{{ 'customer.register.optin_box' | t }}
+					</div>
+
+
 	      <div class="action_bottom">
 	        <input class="btn btn-success" type="submit" value="{{ 'customer.register.submit' | t }}" />
 	      </div>
 	    {% endform %}
-	    
-	    
+
+
 	    </div>
 	    </div>
-	    
+
 	  </div><!-- /#create-customer -->
   </div>
 </div>
+
+<script>
+	function handleChange(checkbox) {
+    if (checkbox.checked == true) {
+        document.getElementById("pro_fields").style.display = "block";
+    } else {
+        document.getElementById("pro_fields").style.display = "none";
+   	}
+	}
+</script>
