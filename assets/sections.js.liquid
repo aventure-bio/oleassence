@@ -946,6 +946,7 @@ function MobileMenu() {
 MobileMenu.prototype.menu_click = function ($link, $menu) {
     var self = this;
     this.clear_submenus($menu);
+    debugger;
     var handle = $link.data('link');
 
     if (handle === 'mobile-menu-currency') {

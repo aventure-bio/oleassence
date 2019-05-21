@@ -1,0 +1,100 @@
+<div class="grid__item {{ grid_item_width }} indiv-product-wrapper wow zoomIn collection-image-anim
+{% case section.settings.grid %}
+  {% when '2' %}
+    {% cycle ' alpha mobile-clear tablet-clear', ' omega' %}
+  {% when '3' %}
+      {% cycle ' alpha mobile-clear', '', ' mobile-clear omega', 'alpha', ' mobile-clear', ' omega' %}
+  {% when '4' %}
+      {% cycle ' alpha mobile-clear tablet-clear', '', ' mobile-clear tablet-clear', ' omega' %}
+  {% when '5' %}
+      {% cycle ' alpha mobile-clear tablet-clear', '', ' mobile-clear tablet-clear', '', ' omega mobile-clear tablet-clear', ' alpha', ' mobile-clear tablet-clear', '', ' mobile-clear tablet-clear', ' omega' %}
+  {% when '6' %}
+      {% cycle ' alpha mobile-clear tablet-clear', '', ' mobile-clear', ' tablet-clear', ' mobile-clear', ' omega' %}
+  {% endcase %}
+">
+
+  <div class="indiv-product">
+
+    {% case section.settings.hover-effect %}
+
+      {% when 'none' %}
+
+      <a class="grid__image" href="{{ product.url | within: collection }}" title="{{ product.title | escape }}">
+        {% include 'responsive-image' with product.featured_image, alt: product.title %}
+      </a>
+
+      {% when 'second-image' %}
+
+        {% if product.images.size > 1 %}
+
+          <div class="reveal">
+            <a class="grid__image" href="{{ product.url | within: collection }}" title="{{ product.title | escape }}">
+              {% include 'responsive-image' with product.featured_image, alt: product.title %}
+              <div class="hidden">
+                {% include 'responsive-image' with product.images[1], alt: product.images.last.alt %}
+              </div>
+            </a>
+          </div>
+
+        {% else %}
+
+          <a class="grid__image" href="{{ product.url | within: collection }}" title="{{ product.title | escape }}">
+            {% include 'responsive-image' with product.featured_image, alt: product.title %}
+          </a>
+
+        {% endif %}
+
+      {% when 'zoom' %}
+
+      <div class="collection-image--zoom-effect">
+        <div class="zoom-effect--inner">
+          <a class="grid__image" href="{{ product.url | within: collection }}" title="{{ product.title | escape }}">
+            {% include 'responsive-image' with product.featured_image, alt: product.title %}
+          </a>
+        </div>
+      </div>
+
+      {% endcase %}
+
+    <div class="hp-title">
+
+{% if section.settings.show-vendor %}
+  <div class="indiv-product-vendor-text">{{ product.vendor | link_to_vendor }}</div>
+{% endif %}
+
+      <a href="{{ product.url | within: collection }}">
+
+        <div class="indiv-product-title-text">{{ product.title }}</div>
+
+        <span class="money-styling">
+
+          {% if product.compare_at_price_max > product.price %}
+            <h5 class="custom-font compare-at-price">
+              <span class="money">{{ product.compare_at_price_max | money }}</span>
+            </h5>
+          {% endif %}
+
+          {% if product.price_varies %}
+            <small>{{ 'products.general.from' | t }}</small> <span class="money">{{ product.price_min | money }}</span>
+          {% else %}
+            <span class="money">{{ product.price_min | money }}</span>
+          {% endif %}
+
+        </span>
+
+        {% if section.settings.show_reviews %}
+          <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+        {% endif %}
+      </a>
+    </div>
+  </div>
+
+{% if product.available %}
+  {% if product.compare_at_price_max > product.price and settings.sale_badge %}
+    <div class="sale-badge">{{ 'products.general.sale' | t }}</div>
+  {% endif %}
+{% else %}
+  <div class="sold-out-badge">{{ 'products.product.sold_out' | t }}</div>
+{% endif %}
+
+</div>
