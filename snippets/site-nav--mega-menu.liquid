@@ -62,8 +62,9 @@
     {% endif %}
 
   {% endfor %}
-
-  <li>
-    <a href="https://oleassence.myshopify.com/collections/pour-les-professionnels">Pour les pros</a>
-  </li>
+  {% if customer and customer.tags contains 'pro' %}
+    <li>
+      <a href="https://oleassence.myshopify.com/collections/pour-les-professionnels">Pour les pros</a>
+    </li>
+  {% endif %}
 </ul>
