@@ -53,11 +53,9 @@
 
     {% else %}
 
-      {% if customer and customer.tags contains 'pro' %}
-        <li {% if link.active %}class="site-nav--active"{% endif %}>
-          <a href="{{ link.url }}">{{ link.title }}</a>
-        </li>
-      {% endif %}
+      <li {% if link.active %}class="site-nav--active"{% endif %}>
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      </li>
 
     {% endif %}
 
