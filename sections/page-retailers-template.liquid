@@ -29,7 +29,8 @@
         coordinates: [2.305969, 48.877556]
       },
       properties: {
-        title: 'Pharmacie du Parc Monceau'
+        title: 'Pharmacie du Parc Monceau',
+        description: '63 Rue de Courcelles, 75008 Paris'
       }
     },
     {
@@ -39,7 +40,8 @@
         coordinates: [5.243487, 43.863555]
       },
       properties: {
-        title: 'Pharmacie de Lumières'
+        title: 'Pharmacie de Lumières',
+        description: 'Lumières, 84220 Goult'
       }
     },
     {
@@ -49,7 +51,8 @@
         coordinates: [5.053869, 43.918357]
       },
       properties: {
-        title: 'Pharmacie de la Poste'
+        title: 'Pharmacie de la Poste',
+        description: "13 Avenue des Quatre Otages, 84800 L'isle sur la Sorgue"
       }
     },
     {
@@ -59,7 +62,8 @@
         coordinates: [-1.628346, 49.640823]
       },
       properties: {
-        title: 'Pharmacie Herboristerie de la Marine'
+        title: 'Pharmacie Herboristerie de la Marine',
+        description: '9 Rue Emmanuel Liais, 50100 Cherbourg-en-Cotentin'
       }
     },
     {
@@ -69,7 +73,8 @@
         coordinates: [5.386607, 43.300302]
       },
       properties: {
-        title: 'Pharmacie Petit'
+        title: 'Pharmacie Petit',
+        description: '24 Cours Joseph Thierry, 13001 Marseille'
       }
     },
     {
@@ -79,7 +84,8 @@
         coordinates: [1.247883, 45.833461]
       },
       properties: {
-        title: 'Pharmacie de la mauvendirère'
+        title: 'Pharmacie de la mauvendirère',
+        description: '19 Rue de la Mauvendière, 87000 Limoges'
       }
     },
     {
@@ -89,7 +95,8 @@
         coordinates: [5.843352, 43.874931]
       },
       properties: {
-        title: 'Pharmacie des 4 chemins'
+        title: 'Pharmacie des 4 chemins',
+        description: 'Rond-point des Quatre Chemins, 4130 Volx'
       }
     }]
   };
@@ -121,7 +128,7 @@
     new mapboxgl.Marker(el)
       .setLngLat(marker.geometry.coordinates)
       .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-        .setHTML('<div class="text-center"><h5>' + marker.properties.title + '</h5>'))
+        .setHTML('<div class="text-center"><h5>' + marker.properties.title + '</h5><p>' + marker.properties.description +'</p></div>'))
       .addTo(map);
   });
 </script>

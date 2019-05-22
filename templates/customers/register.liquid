@@ -41,6 +41,7 @@
   		  </div>
 
 				<div id="pro_fields" style="display:none">
+
 					<div id="company" class="clearfix large_form">
 						<label for="company" class="login">{{ 'customer.register.company' | t }}</label>
 						<input type="text" class="form-control" name="customer[note][Company]" id="company"  size="30" {% if form.company %}value="{{ form.company }}"{% endif %}>
@@ -74,10 +75,14 @@
 
 <script>
 	function handleChange(checkbox) {
+		var pro_field = document.getElementById('pro_fields')
     if (checkbox.checked == true) {
-        document.getElementById("pro_fields").style.display = "block";
+			pro_field.style.display = "block";
+			pro_field.innerHTML = pro_field.innerHTML + "<div><input type='hidden' id='customer_tags' name='customer[tags]' value='pro'/></div>"
     } else {
-        document.getElementById("pro_fields").style.display = "none";
+			pro_field.style.display = "none";
+			var customerTags = document.getElementById('customer_tags')
+			customerTags.parentNode.removeChild(customerTags);
    	}
 	}
 </script>
