@@ -89,7 +89,7 @@
 
                                               {% if slide_is_link %}
 
-                                                <a class="btn btn-custom" href="{{ block.settings.link }}">{{ block.settings.button_text  }}</a>
+                                                <a class="btn btn-custom oleo-btn" href="{{ block.settings.link }}">{{ block.settings.button_text  }}</a>
 
                                               {% else %}
 
@@ -116,7 +116,7 @@
                                           }
 
                                           .slider-block--{{ block.id }} .slider-caption .btn.btn-custom {
-                                            background-color: {{ block.settings.button-background }} !important;
+                                            background-color: {{ block.settings.button-background }};
                                             color: {{ block.settings.button-text }} !important;
                                           }
 

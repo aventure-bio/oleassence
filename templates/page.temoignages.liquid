@@ -1,0 +1,58 @@
+<article id="{{page.handle}}" class="page hentry">
+	<header>
+		<div class="title-bar {{ settings.title-bar-styling }} custom-font">
+			<h1>{{ page.title }}</h1>
+			<div class="clear"></div>
+		</div>
+	</header>
+  	<div class="temoignage-header">
+      <p>Voici quelques exemples des messages que nous recevons à propos de nos produits.</p>
+      <p>Vous souhaitez également partager un témoignage avec la communauté Oleassence ? Soumettez-le ci-dessous.</p>
+      <a href="#temoignage-form"><input type="button" class="btn btn-custom oleo-btn" value="Soumettre un témoignage" /></a>
+  	</div>
+	<section class="entry-content">
+		{{ page.content }}
+	</section>
+  	<div id="temoignage-form">
+      <h3>Soumettre un témoignage</h3>
+      {% form 'contact' %}
+      <p class="success-msg form-success{% unless form.posted_successfully? %} hide{% endunless %}">
+        Merci pour votre témoignage. Nous le publierons très prochainement.
+      </p>
+      {% include 'form-errors-custom' %}
+      <div id="contact-form">
+        <div class="row">
+          <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+              <label for="name">{{ 'contact.form.name' | t }}</label>
+              <input type="text" name="contact[name]" id="name" class="form-control" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+            </div>
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <div class="form-group">
+              <label for="email">{{ 'contact.form.email' | t }}</label>
+              <input type="email" name="contact[email]" id="email" class="form-control" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" spellcheck="false" autocomplete="off" autocapitalize="off">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="message">{{ 'contact.form.message' | t }}</label>
+              <textarea id="message" rows="10" class="form-control" name="contact[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 btn-contact--wrapper">
+            <div class="form-group" id="newsletter-wrapper">
+              <input type="submit" class="btn btn-custom oleo-btn" value="{{ 'contact.form.send' | t }}" />
+            </div>
+            <i class="fas fa-spinner fa-pulse fa-2x fa-fw newsletter-spinner hide"></i>
+          </div>
+        </div>
+      </div>
+
+	  {% endform %}
+  	</div>
+</article>

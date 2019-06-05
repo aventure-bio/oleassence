@@ -136,12 +136,12 @@
   },
   "contact": {
     "form": {
-      "name": "Nom",
+      "name": "Prénom et nom",
       "email": "Email",
       "phone": "Téléphone",
       "message": "Message",
       "send": "Envoyer",
-      "post_success": "Merci de nous contacter. Nous vous répondrons dès que possible."
+      "post_success": "Merci pour votre message. Nous vous répondrons dès que possible."
     }
   },
   "customer": {

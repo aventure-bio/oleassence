@@ -290,7 +290,7 @@
           "show-slide-dots": true,
           "show-slide-arrows": false,
           "button_label": "Voir tous les témoignages",
-          "button_link": "shopify:\/\/pages\/contactez-nous"
+          "button_link": "shopify:\/\/pages\/temoignages"
         }
       },
       "newsletter": {
@@ -395,7 +395,7 @@
           "hover-effect": "zoom",
           "collection_image_enable": false,
           "sort_enable": false,
-          "tags_enable": true,
+          "tags_enable": false,
           "match-height": true,
           "show_reviews": true,
           "enable_collection_sidebar": false
@@ -515,6 +515,10 @@
         "settings": {
           "enable_continue_shopping": false
         }
+      },
+      "page-retailers-template": {
+        "type": "page-retailers-template",
+        "settings": {}
       }
     },
     "content_for_index": [
