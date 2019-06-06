@@ -141,6 +141,14 @@ $baseFontSize: {{ settings.typography-body-font-size }}px; // Henceforth known a
 	vertical-align: sub;
 }
 
+.p-8 {
+	padding: 8px !important;
+}
+
+.fs-12 {
+	font-size: 12px !important;
+}
+
 
 /*============================================================================
   #Core Styles
@@ -6515,6 +6523,19 @@ select:disabled {
 	background-color: transparent;
 }
 
+.select-collection .select-dropdown {
+	font-size: 12px !important;
+}
+
+.select-collection input.select-dropdown {
+	padding: 8px !important;
+}
+
+.select-collection .dropdown-content li>a,
+.select-collection .dropdown-content li>span {
+	font-size: 12px !important;
+}
+
 // Prefix Icons
 .prefix ~ .select-wrapper {
 	margin-left: 3rem;
@@ -7099,7 +7120,7 @@ select:disabled {
   background: none!important;
   color: $oleo-dark-grey!important;
   text-transform: lowercase!important;
-}  
+}
 .contact-options-title {
   width: 100%;
   text-transform: uppercase;
@@ -7672,4 +7693,67 @@ footer h3:after {
 }
 .question-cta {
   padding: 30px 15px;
+}
+
+// XV- Collection Page: Filter by tag
+
+.collection-tag-collapsible {
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  outline: none;
+}
+.collection-tag-collapsible:after {
+  content: "";
+  border-top: 5px solid;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  margin-left: 8px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.collection-tag-active, .collection-tag-collapsible:hover {
+  background-color: #fff;
+  color: $oleo-dark-grey;
+}
+.collection-tag-active:after {
+  content: "";
+  margin-left: 8px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.collection-tag-content {
+	padding: 0 15px;
+	background-color: #fff;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+}
+
+/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+/* Subnavigation styles */
+.subnav { clear: both; list-style-type: none; margin: 5px 0; padding: 0; }
+.subnav li { display: block; float: left; }
+.subnav li a {
+  display: block;
+  height: 28px;
+  line-height: 28px;
+  padding: 0 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  background: #eee;
+  margin: 0 7px 7px 0;
+  color: #666;
+}
+.subnav li a:hover, .subnav li.active a {
+  background: #666;
+  color: #fff;
 }

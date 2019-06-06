@@ -1253,12 +1253,13 @@ function load_collection_tag_filter() {
                 newTags.push(val);
             }
         });
-        if (newTags.length) {
-            var query = newTags.join('+');
+        {% comment %} if (newTags.length) {
             window.location.href = $('#link-to-tag-generic a').attr('href').replace(/\/tag($|\?)/, '/' + query + '$1');
-        } else {
-            window.location.href = $('#link-to-collection').val();
-        }
+        } else { {% endcomment %}
+
+            var query = newTags[newTags.length-1];
+            window.location.href = $('#link-to-tag-generic a').attr('href').replace(/\/tag($|\?)/, '/' + query + '$1');
+        {% comment %} } {% endcomment %}
     });
     $('.coll-filter').material_select();
 }
@@ -1667,6 +1668,7 @@ function onload(event) {
         load_indiv_product_slider();
         load_quantity_controls();
         load_product_collapsible();
+        load_collection_tag_collapsible();
         load_out_of_stock_email_form();
         load_product(section && event && event.target);
         load_materialize_select();
@@ -1825,6 +1827,23 @@ function load_product_collapsible(){
             content.style.maxHeight = null;
         } else {
             content.style.maxHeight = content.scrollHeight + "px";
+        }
+        });
+    }
+}
+
+function load_collection_tag_collapsible(){
+    var coll = document.getElementsByClassName("collection-tag-collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+        this.classList.toggle("collection-tag-active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = "1000px";
         }
         });
     }
