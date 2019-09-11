@@ -1,3 +1,12 @@
+<script>
+  window.onload=function(){
+    var bt = document.getElementById('orders-notif');
+    var ct = document.getElementById('orders-notif-content');
+    bt.addEventListener('click', function(){ 
+      if (ct.style.display === 'none') {ct.style.display = "block"; } else {ct.style.display = "none"}
+    } , false );
+  }
+</script>
 <div class="content clearfix">
 
 	<div class="title-bar {{ settings.title-bar-styling }} custom-font">
@@ -17,7 +26,7 @@
       <div class="address note">
         {% if customer.default_address != nil %}
           <p>{{ customer.default_address.address1 }}
-          {% if customer.default_address.address2 != "" %}
+          {% if customer.default_address.address2 != nil and customer.default_address.address2 != '' %}
             <br />{{ customer.default_address.address2 }}
           {% endif %}
           <br />{{ customer.default_address.city}}, {% if address.province_code %}{{customer.default_address.province_code}}, {% endif %}{{customer.default_address.country}}
@@ -63,6 +72,14 @@
     {% else %}
       <p>{{ 'customer.orders.none' | t }}</p>
     {% endif %}
+    <div id="orders-notif">
+      <span>Pourquoi certaines de mes anciennes commandes n'apparaissent-elles pas ?</span>
+      <div id="orders-notif-content" style="display: none;">
+        <p>À la fin de l'été 2019, nous avons changé de plateforme de site web dans le but de vous offrir une meileure expérience client. Les commandes passées sur l'ancien site ne sont pas affichées sur cette page.</p>
+        <p>Les points fidélités que vous avez acquis avec vos commandes passées sont quant à eux conservés.</p>
+        <p>Pour toute question relative à ce changement de site ou à l'une de vos commandes passées, n'hésitez pas à <a href="/pages/contactez-nous">nous contacter</a>.</p>
+      </div>
+    </div>
   </div>
   
   </div>

@@ -13,20 +13,15 @@
   {% endcase %}
 ">
 
-  <div class="indiv-product">
-
+<div class="indiv-product">
+  <div class="indiv-product-img">
     {% case section.settings.hover-effect %}
-
       {% when 'none' %}
-
-      <a class="grid__image" href="{{ product.url | within: collection }}" title="{{ product.title | escape }}">
-        {% include 'responsive-image' with product.featured_image, alt: product.title %}
-      </a>
-
+        <a class="grid__image" href="{{ product.url | within: collection }}" title="{{ product.title | escape }}">
+          {% include 'responsive-image' with product.featured_image, alt: product.title %}
+        </a>
       {% when 'second-image' %}
-
         {% if product.images.size > 1 %}
-
           <div class="reveal">
             <a class="grid__image" href="{{ product.url | within: collection }}" title="{{ product.title | escape }}">
               {% include 'responsive-image' with product.featured_image, alt: product.title %}
@@ -35,59 +30,65 @@
               </div>
             </a>
           </div>
-
         {% else %}
-
           <a class="grid__image" href="{{ product.url | within: collection }}" title="{{ product.title | escape }}">
             {% include 'responsive-image' with product.featured_image, alt: product.title %}
           </a>
-
         {% endif %}
-
       {% when 'zoom' %}
-
-      <div class="collection-image--zoom-effect">
-        <div class="zoom-effect--inner">
-          <a class="grid__image" href="{{ product.url | within: collection }}" title="{{ product.title | escape }}">
-            {% include 'responsive-image' with product.featured_image, alt: product.title %}
-          </a>
+        <div class="collection-image--zoom-effect">
+          <div class="zoom-effect--inner">
+            <a class="grid__image" href="{{ product.url | within: collection }}" title="{{ product.title | escape }}">
+              {% include 'responsive-image' with product.featured_image, alt: product.title %}
+            </a>
+          </div>
         </div>
-      </div>
-
-      {% endcase %}
-
-    <div class="hp-title">
-
-{% if section.settings.show-vendor %}
-  <div class="indiv-product-vendor-text">{{ product.vendor | link_to_vendor }}</div>
-{% endif %}
-
-      <a href="{{ product.url | within: collection }}">
-
-        <div class="indiv-product-title-text">{{ product.title }}</div>
-
+    {% endcase %}
+    <div class="indiv-product-addtobasket">
+      <form method="post" action="/cart/add">
+        <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+        <input min="1" type="number" id="quantity" name="quantity" value="1" style="display: none;" />
+        <button type="submit" title="Ajouter au panier" class="oleo-btn-basket" />
+      </form>
+    </div>
+  </div>
+  <div class="hp-title">
+    {% if section.settings.show-vendor %}
+      <div class="indiv-product-vendor-text">{{ product.vendor | link_to_vendor }}</div>
+    {% endif %}
+    <a href="{{ product.url | within: collection }}">
+      <div class="indiv-product-title-text">{{ product.title }}</div>
+      <div class="indiv-product-details">
+        <span class="contenance-styling">
+          {% for option in product.options_with_values %}
+            {% if option.name == "Contenance" and option.values.size == 1 %}
+              <img src="{{ 'flacon-pipette.png' | asset_url }}" style="margin: 0 4px 5px 0; height: auto; width: 8px" title="Contenance" /><span>{{ option.values | first }}</span>
+            {% elsif option.name == "Poids" and option.values.size == 1 %}
+              <img src="{{ 'weight.png' | asset_url }}" style="margin: 0 4px 5px 0; height: auto; width: 14px" title="Poids" /><span>{{ option.values | first }}</span>
+            {% elsif option.name == "Nombre de produits" and option.values.size == 1 %}
+          <img src="{{ 'nombre-produits.svg' | asset_url }}" style="margin: 0 4px 5px 0; height: auto; width: 16px" title="Nombre de produits" /><span>{{ option.values | first }} <span class="rmv-toosmall">produit{% unless option.values contains '1' %}s{% endunless %}</span></span>
+            {% endif %}
+          {% endfor %}
+        </span>
         <span class="money-styling">
-
           {% if product.compare_at_price_max > product.price %}
             <h5 class="custom-font compare-at-price">
-              <span class="money">{{ product.compare_at_price_max | money }}</span>
+              <span class="money" style="padding-right: 8px;">{{ product.compare_at_price_max | money }}</span>
             </h5>
           {% endif %}
-
           {% if product.price_varies %}
             <small>{{ 'products.general.from' | t }}</small> <span class="money">{{ product.price_min | money }}</span>
           {% else %}
             <span class="money">{{ product.price_min | money }}</span>
           {% endif %}
-
         </span>
-
-        {% if section.settings.show_reviews %}
-          <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
-        {% endif %}
-      </a>
-    </div>
+      </div>
+      {% if section.settings.show_reviews %}
+        <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+      {% endif %}
+    </a>
   </div>
+</div>
 
 {% if product.available %}
   {% if product.compare_at_price_max > product.price and settings.sale_badge %}

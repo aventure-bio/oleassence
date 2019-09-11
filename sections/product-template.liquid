@@ -250,6 +250,16 @@
               <img src="{{ 'flacon-pipette.png' | asset_url }}" style="margin-right: 5px; height: auto; width: 10px" title="Contenance" />
               <span class="v-align-sub">{{ option.values | first }}</span>
             </div>
+          {% elsif option.name == "Poids" and option.values.size == 1 %}
+        	<div>
+              <img src="{{ 'weight.png' | asset_url }}" style="margin-right: 5px; height: auto; width: 16px" title="Poids" />
+              <span class="v-align-sub">{{ option.values | first }}</span>
+            </div>
+          {% elsif option.name == "Nombre de produits" and option.values.size == 1 %}
+        	<div>
+              <img src="{{ 'nombre-produits.svg' | asset_url }}" style="margin-right: 5px; height: auto; width: 18px" title="Nombre de produits" />
+              <span class="v-align-sub">{{ option.values | first }} produit{% unless option.values contains '1' %}s{% endunless %}</span>
+            </div>
           {% endif %}
         {% endfor %}
         {% if section.settings.show_reviews %}

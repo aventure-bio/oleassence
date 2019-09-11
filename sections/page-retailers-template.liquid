@@ -1,22 +1,68 @@
 <div id="col-main" class="content">
-
 	<div class="title-bar {{ settings.title-bar-styling }} custom-font">
 		<h1>{{ page.title }}</h1>
 		<div class="clear"></div>
 	</div>
-
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2 col-xs-12">
-
-		{% if page.content != blank %}
-		<div class="contact-page--content">
-			{{ page.content }}
+      <div class="col-md-8 col-md-offset-2 col-xs-12">
+        {% if page.content != blank %}
+        <div class="contact-page--content">
+          {{ page.content }}
 		</div>
 		{% endif %}
-  </div>
+      </div>
+  	</div>
+  <div id='producer_map' class='producer_map'></div>
+  <div class="sellers-table">
+<table><caption>Liste des points de vente Oleassence</caption>
+<thead>
+<tr>
+<th scope="col">Point de vente</th>
+<th scope="col">Adresse</th>
+<th scope="col">Lien Google Maps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="Point de vente">Pharmacie Les 4 chemins</td>
+  <td data-label="Adresse">Rond-point des Quatre Chemins, <strong>04130 Volx</strong></td>
+<td data-label="Lien Google Maps"><a href="https://goo.gl/maps/oPzaYLXhskkePEt38" target="_blank">Y aller</a></td>
+</tr>
+<tr>
+<td data-label="Point de vente">Pharmacie Petit</td>
+<td data-label="Adresse">24 Cours Joseph Thierry, <strong>13001 Marseille</strong></td>
+<td data-label="Lien Google Maps"><a href="https://goo.gl/maps/ynoY4pZDhjNdzf1LA" target="_blank">Y aller</a></td>
+</tr>
+<tr>
+<td data-label="Point de vente">Pharmacie Herboristerie de la Marine</td>
+<td data-label="Adresse">9 Rue Emmanuel Liais, <strong>50100 Cherbourg-en-Cotentin</strong></td>
+<td data-label="Lien Google Maps"><a href="https://goo.gl/maps/kS676v4YidjrH4nY9" target="_blank">Y aller</a></td>
+</tr>
+<tr>
+<td data-label="Point de vente">Pharmacie du Parc Monceau</td>
+<td data-label="Adresse">63 Rue de Courcelles, <strong>75008 Paris</strong></td>
+<td data-label="Lien Google Maps"><a href="https://goo.gl/maps/bYY6gPvsmSibZYzs8" target="_blank">Y aller</a></td>
+</tr>
+<tr>
+<td data-label="Point de vente">Pharmacie de Lumières</td>
+<td data-label="Adresse">Lumières, <strong>84220 Goult</strong></td>
+<td data-label="Lien Google Maps"><a href="https://goo.gl/maps/ckVzUmA8ZY9xS5Hu8" target="_blank">Y aller</a></td>
+</tr>
+<tr>
+<td data-label="Point de vente">Pharmacie de la Poste</td>
+<td data-label="Adresse">13 Avenue des Quatre Otages, <strong>84800 L'isle sur la Sorgue</strong></td>
+<td data-label="Lien Google Maps"><a href="https://goo.gl/maps/nnqV6x7RueQwJRts7" target="_blank">Y aller</a></td>
+</tr>
+<tr>
+<td data-label="Point de vente">Pharmacie de la Mauvendière</td>
+<td data-label="Adresse">19 Rue de la Mauvendière, <strong>87000 Limoges</strong></td>
+<td data-label="Lien Google Maps"><a href="https://goo.gl/maps/KkPQgXxB6Ex6CWB19" target="_blank">Y aller</a></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 </div>
-<div id='producer_map' class='producer_map'></div>
 
 <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoiZGFtaWVubGV0aGllYyIsImEiOiJjanQ3NHYxcjYwZ3o4NDlwaGw0ZGowa2d2In0.iFkiY6l1rLcH7LNmgE0Mkg';
@@ -30,7 +76,8 @@
       },
       properties: {
         title: 'Pharmacie du Parc Monceau',
-        description: '63 Rue de Courcelles, 75008 Paris'
+        description: '63 Rue de Courcelles, 75008 Paris',
+        link: 'https://goo.gl/maps/bYY6gPvsmSibZYzs8'
       }
     },
     {
@@ -41,7 +88,8 @@
       },
       properties: {
         title: 'Pharmacie de Lumières',
-        description: 'Lumières, 84220 Goult'
+        description: 'Lumières, 84220 Goult',
+        link: 'https://goo.gl/maps/ckVzUmA8ZY9xS5Hu8'
       }
     },
     {
@@ -52,7 +100,8 @@
       },
       properties: {
         title: 'Pharmacie de la Poste',
-        description: "13 Avenue des Quatre Otages, 84800 L'isle sur la Sorgue"
+        description: "13 Avenue des Quatre Otages, 84800 L'isle sur la Sorgue",
+        link: 'https://goo.gl/maps/nnqV6x7RueQwJRts7'
       }
     },
     {
@@ -63,7 +112,8 @@
       },
       properties: {
         title: 'Pharmacie Herboristerie de la Marine',
-        description: '9 Rue Emmanuel Liais, 50100 Cherbourg-en-Cotentin'
+        description: '9 Rue Emmanuel Liais, 50100 Cherbourg-en-Cotentin',
+        link: 'https://goo.gl/maps/kS676v4YidjrH4nY9'
       }
     },
     {
@@ -74,7 +124,8 @@
       },
       properties: {
         title: 'Pharmacie Petit',
-        description: '24 Cours Joseph Thierry, 13001 Marseille'
+        description: '24 Cours Joseph Thierry, 13001 Marseille',
+        link: 'https://goo.gl/maps/ynoY4pZDhjNdzf1LA'
       }
     },
     {
@@ -84,8 +135,9 @@
         coordinates: [1.247883, 45.833461]
       },
       properties: {
-        title: 'Pharmacie de la mauvendirère',
-        description: '19 Rue de la Mauvendière, 87000 Limoges'
+        title: 'Pharmacie de la Mauvendière',
+        description: '19 Rue de la Mauvendière, 87000 Limoges',
+        link: 'https://goo.gl/maps/KkPQgXxB6Ex6CWB19'
       }
     },
     {
@@ -95,8 +147,9 @@
         coordinates: [5.843352, 43.874931]
       },
       properties: {
-        title: 'Pharmacie des 4 chemins',
-        description: 'Rond-point des Quatre Chemins, 4130 Volx'
+        title: 'Pharmacie Les 4 chemins',
+        description: 'Rond-point des Quatre Chemins, 04130 Volx',
+        link: 'https://goo.gl/maps/oPzaYLXhskkePEt38'
       }
     }]
   };
@@ -128,7 +181,7 @@
     new mapboxgl.Marker(el)
       .setLngLat(marker.geometry.coordinates)
       .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-        .setHTML('<div class="text-center"><h5>' + marker.properties.title + '</h5><p>' + marker.properties.description +'</p></div>'))
+        .setHTML('<div class="marker_label"><h5>' + marker.properties.title + '</h5><p>' + marker.properties.description + '</p><a href="' + marker.properties.link + '" target="_blank">Y aller</a></div>'))
       .addTo(map);
   });
 </script>
@@ -145,5 +198,25 @@
   .producer_map {
     width: 100%;
     height: 300px;
+    border: solid 1px #808080;
+  }
+  .marker_label {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #505050;
+  }
+  .marker_label h5 {
+    margin: 5px 0 8px 0;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .marker_label p {
+    margin: 0 0 5px 0;
+  }
+  .marker-label a {
+    margin: 0;
+    color: #9e9f91;
   }
 </style>

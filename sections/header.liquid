@@ -1,10 +1,14 @@
-{% assign sticky-header-offset = '66' %}
+{% assign sticky-header-offset = '26' %}
 {% if section.settings.search-enable %}
-  {% assign sticky-header-offset = sticky-header-offset | plus:66 %}
+  {% assign sticky-header-offset = sticky-header-offset | plus:0 %}
 {% endif %}
 {% if shop.customer_accounts_enabled %}
-  {% assign sticky-header-offset = sticky-header-offset | plus:66 %}
+  {% assign sticky-header-offset = sticky-header-offset | plus:0 %}
 {% endif %}
+
+{% comment %} 
+Les 3 valeurs ci-dessus étaient à '66'. On les passe à '26' pour la première et '0' pour les 2 autres pour aligner, suite à l'ajout du logo dans le menu sticky.
+{% endcomment %}
 
 <style>
   .site-header__logo-image img {
@@ -15,12 +19,16 @@
 
   .site-header__subtitle {
     font-size: 17px;
-    padding-top: 10px;
-    font-weight: 700;
-    color: #9d9f92;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-weight: 400;
+    color: #808080;
     text-align: center;
     font-style: italic;
     font-family: 'Vollkorn', serif;
+  }
+  .site-header__subtitle .sticky {
+    display: none;
   }
 
   #main-navigation-wrapper{
@@ -677,15 +685,15 @@
           "label": "Small"
         },
         {
-          "value": "18",
+          "value": "20",
           "label": "Medium"
         },
         {
-          "value": "20",
+          "value": "24",
           "label": "Large"
         }
       ],
-      "default": "18"
+      "default": "20"
     },
     {
       "type":      "radio",

@@ -1,0 +1,82 @@
+<div id="template">
+  <div id="customer">
+	  <!-- Create Customer -->
+	  <div id="create-customer">
+	    <div class="title-bar {{ settings.title-bar-styling }} custom-font">
+	      <h2 class="title">Mettre à jour mon mot de passe</h2>
+	      <div class="clear"></div>
+	    </div>
+        
+<div class="reg-text">
+  Oleassence a mis à jour son site pour qu'il soit plus facile à utiliser et davantage sécurisé.<br />
+  <strong>Vous devez renseigner un nouveau mot de passe pour accéder à votre compte.</strong><br />
+  Cliquez sur le bouton "Recevoir l'email de mise à jour" pour mettre à jour votre compte.
+</div>
+        
+<div class="row">
+
+<div class="col-lg-4 col-lg-offset-4">
+	    {% form 'create_customer' %}
+	      {{ form.errors | default_errors }}
+
+	      <!-- <div id="first_name" class="clearfix large_form">
+	        <label for="first_name" class="login">{{ 'customer.register.first_name' | t }}</label>
+	        <input type="text" class="form-control"  name="customer[first_name]" id="first_name" class="large" size="30" />
+	      </div>
+
+	      <div id="last_name" class="clearfix large_form">
+	        <label for="last_name" class="login">{{ 'customer.register.last_name' | t }}</label>
+	        <input type="text" class="form-control"  name="customer[last_name]" id="last_name" class="large" size="30" />
+	      </div>
+		  -->
+
+	      <div id="email" class="clearfix large_form">
+	        <label for="email" class="login">{{ 'customer.register.email' | t }}</label>
+	        <input type="email" readonly="readonly" class="form-control"  name="customer[email]" id="customer-email" class="large" size="30" />
+	      </div>
+
+	      <div id="password" class="clearfix large_form" style="display: none;">
+	        <label for="password" class="login">{{ 'customer.register.password' | t }}</label>
+	        <input type="password" class="form-control" name="customer[password]" id="password" size="30" value="resend_pwd" />
+	      </div>
+
+	      <div class="action_bottom">
+	        <input class="btn btn-success oleo-btn" type="submit" value="Recevoir l'email de mise à jour" />
+	      </div>
+	    {% endform %}
+
+		<div class="reg-new">
+          <a href="/account/register">Utiliser une nouvelle adresse email pour créer mon compte</a>
+          
+  		</div>
+	    </div>
+	    </div>
+
+	  </div><!-- /#create-customer -->
+  </div>
+</div>
+
+<script>
+  function GetURLParameter(sParam){
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++){
+      var sParameterName = sURLVariables[i].split('=');
+      if (sParameterName[0] == sParam){
+        return sParameterName[1];
+      }
+    }
+  }
+  function changeEmail() {
+    var opt;
+    var em = GetURLParameter('email');
+    if (em === undefined) {
+      opt = 'Saisissez votre adresse e-mail.';
+    }
+    else {
+      opt = em;
+    }
+    document.getElementById('customer-email').value = opt;
+  }
+  window.onload = changeEmail();
+</script>

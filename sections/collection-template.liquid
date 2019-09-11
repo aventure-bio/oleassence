@@ -23,7 +23,7 @@
 {% endif %}
 
 <div class="container">
-
+{% include 'ajaxify-cart' %}
 {%- assign limit = section.settings.grid | times: section.settings.rows -%}
 {% paginate collection.products by limit %}
 
@@ -34,6 +34,20 @@
 <div class="title-bar custom-font collection-header">
 	{% if collection.handle == 'all' %}
 		<h2>{{ 'products.general.products_title' | t }}</h2>
+  	{% elsif collection.title contains 'nav_' %}
+  		{% assign splitted_title = collection.title | split: '_' %}
+  		{% assign left_title = splitted_title[1] %}
+  		{% if current_tags.first %}
+  			{% assign splitted_tag = current_tags.first | split: '_' %}
+      		{% assign main_tag = splitted_tag[0] %}
+      		{% assign secondary_tag = splitted_tag[1] %}
+      		{% assign category = main_tag | append: " " | append: secondary_tag %}
+      		{% assign tag_name_to_display = current_tags.first | split: '_' %}
+      		{% assign tag_name_to_display = tag_name_to_display[-1] | prepend: ' : ' %}
+  		{% else %}
+  			{% assign tag_name_to_display = '' %}
+  		{% endif %}
+        <h2>{{ left_title }}{{ tag_name_to_display }}</h2>
 	{% else %}
 		<h2>{{ collection.title }}</h2>
 	{% endif %}
@@ -46,76 +60,135 @@
 </div>
 
 {% if section.settings.tags_enable or section.settings.sort_enable %}
-	<div class="filters-toolbar">
-		{% assign tag_categories = "" | split: ','%}
-		{% for tag in collection.all_tags %}
-			{% assign splitted_tag = tag | split: '_' %}
-			{% assign main_tag = splitted_tag[0] %}
-			{% assign secondary_tag = splitted_tag[1] %}
-			{% assign category = main_tag | append: " " | append: secondary_tag | split: ',' %}
-			{% assign tag_categories = tag_categories | concat: category | uniq %}
-		{% endfor %}
-		<ul class="subnav clearfix">
-			<li{% unless current_tags %} class="active"{% endunless %}>
-				{% if collection.handle %}
-				<a href="/collections/{{ collection.handle }}{% if collection.sort_by %}?sort_by={{ collection.sort_by }}{% endif %}">Tous les produits</a>
-				{% elsif collection.current_type %}
-				<a href="{{ collection.current_type | url_for_type | sort_by: collection.sort_by }}">Tous les produits</a>
-				{% elsif collection.current_vendor %}
-				<a href="{{ collection.current_vendor | url_for_vendor | sort_by: collection.sort_by }}">Tous les produits</a>
-				{% endif %}
-			</li>
-		</ul>
-		<p class="collection-tag-collapsible">Filtrer</p>
-		<div class="collection-tag-content">
-			{% for tag_category in tag_categories %}
-				{% assign collapsible_text = tag_category | capitalize | split: ' ' | join: '/' %}
-				<p class="collection-tag-collapsible">{{ collapsible_text }}</p>
-				<ul class="subnav clearfix collection-tag-content">
-					{% for tag in collection.all_tags %}
-						{% assign splitted_tag = tag | split: '_' %}
-						{% assign main_tag = splitted_tag[0] %}
-						{% assign secondary_tag = splitted_tag[1] %}
-						{% assign category = main_tag | append: " " | append: secondary_tag %}
-						{% assign tag_name_to_display = tag | split: '_' %}
-						{% assign tag_name_to_display = tag_name_to_display[-1] %}
-						{% if tag_category == category %}
-							{% if current_tags contains tag %}
-								<li class="active">
-									{{ tag_name_to_display | link_to_remove_tag: tag }}
-								</li>
-							{% else %}
-								<li>
-									{{ tag_name_to_display | link_to_tag: tag }}
-								</li>
-							{% endif %}
-						{% endif %}
-					{% endfor %}
-				</ul>
-			{% endfor %}
-		</div>
-	</div>
-
-				{% if section.settings.sort_enable %}
-					<div class="collection-page--sort-by col-md-3 col-sm-6 {% if section.settings.tags_enable %}col-md-offset-6{% endif %}">
-						{%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
-						<label for="sort-by">{{ 'collections.sorting.title' | t }}</label>
-  					<select id="sort-by">
-							<option value="manual">{{ 'collections.sorting.featured' | t }}</option>
-					    <option value="price-ascending">{{ 'collections.sorting.price_ascending' | t }}</option>
-					    <option value="price-descending">{{ 'collections.sorting.price_descending' | t }}</option>
-					    <option value="title-ascending">{{ 'collections.sorting.az' | t }}</option>
-					    <option value="title-descending">{{ 'collections.sorting.za' | t }}</option>
-					    <option value="created-ascending">{{ 'collections.sorting.date_ascending' | t }}</option>
-					    <option value="created-descending">{{ 'collections.sorting.date_descending' | t }}</option>
-					    <option value="best-selling">{{ 'collections.sorting.best_selling' | t }}</option>
-						</select>
-						<input class="collection-header__default-sort" type="hidden" value="{{ collection.default_sort_by }}">
-					</div>
-
-					<input type="hidden" id="collection-sort-by" value="{{ collection.sort_by | default: collection.default_sort_by | escape }}" />
-				{% endif %}
-			</div>
+   {% if collection.title contains 'nav_' and current_tags.first contains '_' %}
+  		{% assign filters_display = 'display: none' %}
+  {% else %}
+  		{% for tag in collection.all_tags %}
+    	{% unless tag contains '_' %}
+  			{% assign filters_display = 'display: none' %}
+  		{% else %}
+  			{% assign filters_display = '' %}
+  		{% endunless %}
+  		{% endfor %}
+   {% endif %}
+   <div class="filters-toolbar filters-line" style="{{ filters_display }}">
+    <div class="filters-title">Filtrer</div>
+    {% assign tag_categories = "" | split: ','%}
+    {% for tag in collection.all_tags %}
+    	{% if tag contains '_' %}
+    		{% assign splitted_tag = tag | split: '_' %}
+    		{% assign main_tag = splitted_tag[0] %}
+    		{% assign secondary_tag = splitted_tag[1] %}
+    		{% assign category = main_tag | append: " " | append: secondary_tag | split: ',' %}
+    		{% assign tag_categories = tag_categories | concat: category | uniq %}
+    	{% endif %}
+    {% endfor %}
+    <ul class="filters-current">
+      {% if current_tags.first contains '_' %}
+      	{% assign splitted_tag = current_tags.first | split: '_' %}
+      	{% assign main_tag = splitted_tag[0] %}
+      	{% assign secondary_tag = splitted_tag[1] %}
+      	{% assign category = main_tag | append: " " | append: secondary_tag %}
+      	{% assign tag_name_to_display = current_tags.first | split: '_' %}
+      	{% assign tag_name_to_display = tag_name_to_display[-1] %}
+      	{% if main_tag == 'solutions' %}
+      		{% assign filter_displayed = main_tag | capitalize | append: ' de peau : ' | append: tag_name_to_display %}
+      	{% elsif secondary_tag == 'type' %}
+      		{% if main_tag == 'cheveux' %}
+      			{% assign filter_displayed = ' Type de cheveux : ' | append: tag_name_to_display %}
+      		{% else %}
+      			{% assign filter_displayed = ' Type de peau : ' | append: tag_name_to_display %}
+      		{% endif %}
+      	{% else %}
+      		{% assign filter_displayed = main_tag | capitalize | append: ' : ' | append: secondary_tag | append: ' : ' | append: tag_name_to_display %}
+      	{% endif %}
+      <li>{{ filter_displayed }}</li> <a href="/collections/{{ collection.handle }}{% if collection.sort_by %}?sort_by={{ collection.sort_by }}{% endif %}">Enlever</a>
+      {% endif %}
+    </ul>
+    <div class="filters-container">
+      <div class="filters-box">
+        <p class="filters-lvl1-title collection-tag-collapsible">Par type ou besoin de peau et cheveux</p>
+        <div class="filters-lvl1-box">
+          {% for tag_category in tag_categories %}
+          {% unless tag_category contains 'solutions' %}
+          {% if tag_category contains 'type' %}
+          	{% if tag_category contains 'cheveux' %}
+          		{% assign collapsible_text = tag_category | capitalize | split: ' ' | join: ' : ' | append: ' de cheveux' %}
+          	{% else %}
+          		{% assign collapsible_text = tag_category | capitalize | split: ' ' | join: ' : ' | append: ' de peau' %}
+          	{% endif %}
+          {% else %}
+          	{% assign collapsible_text = tag_category | capitalize | split: ' ' | join: ' : '%}
+          {% endif %}
+          <p class="filters-lvl2-title collection-tag-collapsible">{{ collapsible_text }}</p>
+          <ul class="subnav clearfix collection-tag-content">
+            {% for tag in collection.all_tags %}
+            	{% assign splitted_tag = tag | split: '_' %}
+            	{% assign main_tag = splitted_tag[0] %}
+            	{% assign secondary_tag = splitted_tag[1] %}
+            	{% assign category = main_tag | append: " " | append: secondary_tag %}
+            	{% assign tag_name_to_display = tag | split: '_' %}
+            	{% assign tag_name_to_display = tag_name_to_display[-1] %}
+            	{% if tag_category == category %}
+            		{% if current_tags contains tag %}
+            		<li class="active">{{ tag_name_to_display | link_to_remove_tag: tag }}</li>
+            		{% else %}
+            		<li>{{ tag_name_to_display | link_to_tag: tag }}</li>
+            		{% endif %}
+            	{% endif %}
+            {% endfor %}
+          </ul>
+          {% endunless %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="filters-box">
+        <p class="filters-lvl1-title collection-tag-collapsible">Par solution de peau</p>
+        <div class="filters-lvl1-box">
+          {% for tag_category in tag_categories %}
+          {% if tag_category contains 'solutions' %}
+          <ul class="subnav clearfix">
+            {% for tag in collection.all_tags %}
+            	{% assign splitted_tag = tag | split: '_' %}
+            	{% assign main_tag = splitted_tag[0] %}
+            	{% assign secondary_tag = splitted_tag[1] %}
+            	{% assign category = main_tag | append: " " | append: secondary_tag %}
+            	{% assign tag_name_to_display = tag | split: '_' %}
+            	{% assign tag_name_to_display = tag_name_to_display[-1] %}
+            	{% if tag_category == category %}
+            		{% if current_tags contains tag %}
+            		<li class="active">{{ tag_name_to_display | link_to_remove_tag: tag }}</li>
+            		{% else %}
+            		<li>{{ tag_name_to_display | link_to_tag: tag }}</li>
+            		{% endif %}
+            	{% endif %}
+           	{% endfor %}
+          </ul>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    
+    {% if section.settings.sort_enable %}
+    <div class="collection-page--sort-by col-md-3 col-sm-6 {% if section.settings.tags_enable %}col-md-offset-6{% endif %}">
+      {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+      <label for="sort-by">{{ 'collections.sorting.title' | t }}</label>
+      <select id="sort-by">
+        <option value="manual">{{ 'collections.sorting.featured' | t }}</option>
+        <option value="price-ascending">{{ 'collections.sorting.price_ascending' | t }}</option>
+        <option value="price-descending">{{ 'collections.sorting.price_descending' | t }}</option>
+        <option value="title-ascending">{{ 'collections.sorting.az' | t }}</option>
+        <option value="title-descending">{{ 'collections.sorting.za' | t }}</option>
+        <option value="created-ascending">{{ 'collections.sorting.date_ascending' | t }}</option>
+        <option value="created-descending">{{ 'collections.sorting.date_descending' | t }}</option>
+        <option value="best-selling">{{ 'collections.sorting.best_selling' | t }}</option>
+      </select>
+      <input class="collection-header__default-sort" type="hidden" value="{{ collection.default_sort_by }}">
+     </div>
+     <input type="hidden" id="collection-sort-by" value="{{ collection.sort_by | default: collection.default_sort_by | escape }}" />
+    {% endif %}
+  </div>
 {% endif %}
 
   <div class="page-width row" id="Collection">

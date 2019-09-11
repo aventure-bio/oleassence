@@ -35,19 +35,19 @@
     "sale-label-colour": "#f26c4f",
     "sale_badge": true,
     "type_header_font": "lato_n4",
-    "title-bar-styling": "title-bar-lowercase",
+    "title-bar-styling": "title-bar-minimal",
     "heading-case": "uppercase",
     "typography-headings-font-size": 22,
     "type_base_font": "lato_n4",
-    "typography-body-font-size": 16,
+    "typography-body-font-size": 15,
     "type_announcement_bar_font": "lato_n4",
-    "typography-announcement-bar-font-size": 16,
+    "typography-announcement-bar-font-size": 15,
     "announcement-bar-font-weight": false,
     "type_navigation_font": "lato_n4",
-    "typography-menu-font-size": 16,
+    "typography-menu-font-size": 15,
     "menu-case": "menu-upper-case",
     "product-page-font-size": 24,
-    "add-to-cart-font-size": 16,
+    "add-to-cart-font-size": 15,
     "add-to-cart-text-transform": "uppercase",
     "header_font_size": 20,
     "pop-up-text-header-text-size": 36,
@@ -55,14 +55,14 @@
     "cart-type": "page",
     "allow_note": false,
     "enable_terms_conditions": true,
-    "terms_conditions_link": "",
+    "terms_conditions_link": "shopify:\/\/pages\/conditions-generales-de-vente",
     "sm_facebook_link": "https:\/\/www.facebook.com\/oleassence",
     "sm_twitter_link": "",
     "sm_instagram_link": "https:\/\/instagram.com\/oleassenceenluberon\/",
-    "sm_youtube_link": "",
+    "sm_youtube_link": "https:\/\/www.youtube.com\/channel\/UCYkLXE5uJ10MH-RZsLJ8h6Q",
     "sm_vimeo_link": "",
     "sm_flickr_link": "",
-    "sm_pinterest_link": "",
+    "sm_pinterest_link": "https:\/\/www.pinterest.fr\/oenluberon\/?mc_cid=b1bd96f160&mc_eid=3948b8a715",
     "sm_google_plus_link": "",
     "sm_snapchat_link": "",
     "sm_houzz_link": "",
@@ -96,17 +96,17 @@
     "checkout_input_background_color_mode": "white",
     "checkout_sidebar_background_image": "",
     "checkout_sidebar_background_color": "#fafafa",
-    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
-    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
-    "checkout_accent_color": "#197bbd",
-    "checkout_button_color": "#197bbd",
+    "checkout_heading_font": "Lato",
+    "checkout_body_font": "Lato",
+    "checkout_accent_color": "#9e9f91",
+    "checkout_button_color": "#9e9f91",
     "checkout_error_color": "#e32c2b",
     "header_font_style": "normal",
     "sections": {
       "header": {
         "type": "header",
         "blocks": {
-          "1554222600446": {
+          "1560321649181": {
             "type": "content",
             "settings": {
               "mega-menu": "Nos produits",
@@ -119,26 +119,86 @@
               "mega_image_subheader_2": "",
               "mega_image_link_2": ""
             }
+          },
+          "1560330290622": {
+            "type": "content",
+            "settings": {
+              "mega-menu": "Visage",
+              "mega_image_1": "",
+              "mega_image_header_1": "",
+              "mega_image_subheader_1": "",
+              "mega_image_link_1": "",
+              "mega_image_2": "",
+              "mega_image_header_2": "",
+              "mega_image_subheader_2": "",
+              "mega_image_link_2": ""
+            }
+          },
+          "1560333984185": {
+            "type": "content",
+            "settings": {
+              "mega-menu": "Corps",
+              "mega_image_1": "",
+              "mega_image_header_1": "",
+              "mega_image_subheader_1": "",
+              "mega_image_link_1": "",
+              "mega_image_2": "",
+              "mega_image_header_2": "",
+              "mega_image_subheader_2": "",
+              "mega_image_link_2": ""
+            }
+          },
+          "1560333993202": {
+            "type": "content",
+            "settings": {
+              "mega-menu": "Cheveux",
+              "mega_image_1": "",
+              "mega_image_header_1": "",
+              "mega_image_subheader_1": "",
+              "mega_image_link_1": "",
+              "mega_image_2": "",
+              "mega_image_header_2": "",
+              "mega_image_subheader_2": "",
+              "mega_image_link_2": ""
+            }
+          },
+          "1560334008548": {
+            "type": "content",
+            "settings": {
+              "mega-menu": "Solutions de peau",
+              "mega_image_1": "",
+              "mega_image_header_1": "",
+              "mega_image_subheader_1": "",
+              "mega_image_link_1": "",
+              "mega_image_2": "",
+              "mega_image_header_2": "",
+              "mega_image_subheader_2": "",
+              "mega_image_link_2": ""
+            }
           }
         },
         "block_order": [
-          "1554222600446"
+          "1560321649181",
+          "1560330290622",
+          "1560333984185",
+          "1560333993202",
+          "1560334008548"
         ],
         "settings": {
           "site-header-width": "container-fluid",
           "subtitle": "Nourrissez votre peau de l'essentiel",
           "sticky_header": true,
           "logo": "shopify:\/\/shop_images\/logo.png",
-          "logo_max_width": 220,
+          "logo_max_width": 210,
           "logo_padding": 0,
           "logo-placement": "within-header",
           "social-enable": false,
           "search-enable": true,
           "label-enable": false,
-          "icon-style": "fal",
-          "icon-size": "20",
+          "icon-style": "far",
+          "icon-size": "24",
           "cart-style": "shopping-bag",
-          "cart-number": "total",
+          "cart-number": "quantity",
           "main_linklist": "main-menu",
           "menu_padding": 0,
           "top_bar_linklist": "",
@@ -151,12 +211,12 @@
           "slideshow-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/BBB_5084-hero.jpg",
+              "image": "shopify:\/\/shop_images\/oleo_premium_star_hydra_-_copieaa.jpeg",
               "mobile_image": "",
               "title": "",
-              "text": "<p>D&eacute;couvrez les Soins Naturels Oleassence en Luberon pour votre peau au printemps<\/p>",
-              "button_text": "Découvrir les soins du printemps",
-              "link": "shopify:\/\/collections\/all",
+              "text": "<p>D&eacute;couvrez les Soins Oleassence en Luberon pour votre peau<\/p>",
+              "button_text": "Découvrir les soins de l'été",
+              "link": "shopify:\/\/collections\/soin-de-lete",
               "caption-background": "#ffffff",
               "caption-text": "#000000",
               "button-text": "#ffffff",
@@ -174,7 +234,7 @@
           "slider-width": "full-width",
           "slider-slide-time": 4,
           "caption-heading-size": 50,
-          "caption-subheading-size": 20,
+          "caption-subheading-size": 18,
           "caption-button-size": 16,
           "show-slide-dots": false,
           "show-slide-arrows": false,
@@ -218,6 +278,7 @@
       },
       "collection-list": {
         "type": "collection-list",
+        "disabled": true,
         "blocks": {
           "collection-0": {
             "type": "featured_collection",
@@ -286,19 +347,11 @@
           "colors": "accent",
           "heading": "Témoignages clients",
           "slider-animation": "slide",
-          "slider-slide-time": 4,
+          "slider-slide-time": 5,
           "show-slide-dots": true,
           "show-slide-arrows": false,
           "button_label": "Voir tous les témoignages",
           "button_link": "shopify:\/\/pages\/temoignages"
-        }
-      },
-      "newsletter": {
-        "type": "newsletter",
-        "settings": {
-          "colors": "light",
-          "newsletter_heading": "Recevez notre newsletter",
-          "newsletter_description": ""
         }
       },
       "footer": {
@@ -337,7 +390,7 @@
         ],
         "settings": {
           "show_methods_of_payment": false,
-          "seotext": "<p>Retrouvez sur le&nbsp;<a href=\"https:\/\/www.oleassence.fr\/\">blog Oleassence.fr<\/a>, les conseils de nos pharmaciennes expertes en dermo-cosm&eacute;tiques naturels. Gr&acirc;ce &agrave; leur expertise, apprenez &agrave; identifier la cause d'une&nbsp;<a href=\"https:\/\/www.oleassence.fr\/plaque-rouge-au-visage-qui-gratte-6-gestes-naturels-efficaces-pour-la-contrer\">plaque rouge au visage<\/a>, &agrave; d&eacute;terminer si votre huile v&eacute;g&eacute;tale est&nbsp;<a href=\"https:\/\/www.oleassence.fr\/mon-huile-vegetale-non-comedogene-ou-pas\">com&eacute;dog&egrave;ne<\/a>&nbsp;et m&ecirc;me &agrave;&nbsp;<a href=\"https:\/\/www.oleassence.fr\/3-etapes-enlever-corne-des-pieds-de-facon-naturelle\">enlever la corne des pieds<\/a>&nbsp;naturellement. N'h&eacute;sitez pas &agrave; poser vos questions en commentaire sous leurs articles et elles vous r&eacute;pondrons sous 2 &agrave; 3 jours.<br>Aur&eacute;lie, Christine et Nolwenn vous donnent &eacute;galement des m&eacute;thodes d'utilisation comme pour le&nbsp;<a href=\"https:\/\/www.oleassence.fr\/les-vertus-de-laloe-vera-sont-incroyables-faites-en-profiter-votre-peau\">gel alo&eacute; vera visage<\/a>, l'<a href=\"https:\/\/www.oleassence.fr\/bienfaits-huile-de-coco-cheveu\">huile de coco visage<\/a>&nbsp;ou l'<a href=\"https:\/\/www.oleassence.fr\/lhuile-de-jojoba-merveilleuse-regulatrice-du-sebum-des-peaux-seches-grasses-et-mixtes\">huile de jojoba<\/a>.<\/p>"
+          "seotext": "<p>Retrouvez sur le&nbsp;<a href=\"https:\/\/www.oleassence.fr\/\">blog Oleassence.fr<\/a>, les conseils de nos pharmaciennes expertes en dermo-cosm&eacute;tiques naturels. Gr&acirc;ce &agrave; leur expertise, apprenez &agrave; identifier la cause d'une&nbsp;<a href=\"https:\/\/www.oleassence.fr\/plaque-rouge-au-visage-qui-gratte-6-gestes-naturels-efficaces-pour-la-contrer\">plaque rouge au visage<\/a>, &agrave; d&eacute;terminer si votre huile v&eacute;g&eacute;tale est&nbsp;<a href=\"https:\/\/www.oleassence.fr\/mon-huile-vegetale-non-comedogene-ou-pas\">com&eacute;dog&egrave;ne<\/a>&nbsp;et m&ecirc;me &agrave;&nbsp;<a href=\"https:\/\/www.oleassence.fr\/3-etapes-enlever-corne-des-pieds-de-facon-naturelle\">enlever la corne des pieds<\/a>&nbsp;naturellement. N'h&eacute;sitez pas &agrave; poser vos questions en commentaire sous leurs articles et elles vous r&eacute;pondront sous 2 &agrave; 3 jours.<br>Aur&eacute;lie, Christine et Nolwenn vous donnent &eacute;galement des m&eacute;thodes d'utilisation comme pour le&nbsp;<a href=\"https:\/\/www.oleassence.fr\/les-vertus-de-laloe-vera-sont-incroyables-faites-en-profiter-votre-peau\">gel alo&eacute; vera visage<\/a>, l'<a href=\"https:\/\/www.oleassence.fr\/bienfaits-huile-de-coco-cheveu\">huile de coco visage<\/a>&nbsp;ou l'<a href=\"https:\/\/www.oleassence.fr\/lhuile-de-jojoba-merveilleuse-regulatrice-du-sebum-des-peaux-seches-grasses-et-mixtes\">huile de jojoba<\/a>.<\/p>"
         }
       },
       "announcement-bar": {
@@ -356,7 +409,7 @@
           "1554220126786-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/BBB_5075-footer.jpg",
+              "image": "shopify:\/\/shop_images\/oel_footer_w.jpg",
               "mobile_image": "",
               "title": "",
               "text": "",
@@ -395,7 +448,7 @@
           "hover-effect": "zoom",
           "collection_image_enable": false,
           "sort_enable": false,
-          "tags_enable": false,
+          "tags_enable": true,
           "match-height": true,
           "show_reviews": true,
           "enable_collection_sidebar": false
@@ -407,19 +460,19 @@
           "1554279023092-0": {
             "type": "text",
             "settings": {
-              "icon": "truck",
+              "icon": "box-check",
               "heading": "Livraison rapide",
               "subheading": "offerte dès 75€ d'achats",
-              "link": ""
+              "link": "shopify:\/\/pages\/livraison"
             }
           },
           "1554279023092-1": {
             "type": "text",
             "settings": {
-              "icon": "smile",
+              "icon": "user-check",
               "heading": "95% de satisfaction",
               "subheading": "mesurée chez nos clients",
-              "link": ""
+              "link": "shopify:\/\/pages\/temoignages"
             }
           },
           "1554279023092-2": {
@@ -434,10 +487,10 @@
           "1554279063542": {
             "type": "text",
             "settings": {
-              "icon": "key",
+              "icon": "shield-check",
               "heading": "Paiement sécurisé",
               "subheading": "CB, Paypal, Virement...",
-              "link": ""
+              "link": "shopify:\/\/pages\/paiement"
             }
           }
         },
@@ -451,19 +504,20 @@
           "enable": true,
           "colors": "light",
           "alignment": "center",
-          "icon-style": "fal",
+          "icon-style": "far",
           "icon-size": "text-adverts-icon-size--medium"
         }
       },
       "1554279384401": {
         "type": "feature-row",
+        "disabled": true,
         "settings": {
           "colors": "white",
           "image-width": "medium",
-          "image": "shopify:\/\/shop_images\/charte.jpg",
+          "image": "shopify:\/\/shop_images\/os-jpg.jpg",
           "layout": "left",
           "title": "Les 5 valeurs fondamentales OLEASSENCE",
-          "text_block": "<p><strong>Scientifique :<\/strong>&nbsp;cr&eacute;&eacute;es par une pharmacienne, nos formules ont &eacute;t&eacute; &eacute;tudi&eacute;es selon la composition mol&eacute;culaire des ingr&eacute;dients naturels.<\/p>\n<p><strong>Partage :<\/strong>&nbsp;nous mettons nos formules &agrave; la disposition de tous.<\/p>\n<p><strong>Humaine :<\/strong>&nbsp;nous r&eacute;pondons &agrave; vos questions sous 3 jours et vous accompagnons jusqu'&agrave; trouver la solution naturelle ad&eacute;quate pour votre peau.<\/p>\n<p><strong>Transparence :<\/strong>&nbsp;nos produits sont pour la plupart conditionn&eacute;s dans des flacons ou pots en verre, garants de leur int&eacute;grit&eacute; et de leur qualit&eacute;.<\/p>\n<p><strong>Fra&icirc;cheur :<\/strong>&nbsp;comme tout ingr&eacute;dient naturel, l'efficacit&eacute; des huiles v&eacute;g&eacute;tales diminue avec le temps. Nous vendons donc nos produits sous 3 mois apr&egrave;s leur fabrication.<\/p>",
+          "text_block": "<p><strong>Scientifique :<\/strong>&nbsp;formul&eacute;es&nbsp;par nos pharmacienne, nos&nbsp;soins ont &eacute;t&eacute; &eacute;tudi&eacute;es selon la composition mol&eacute;culaire des ingr&eacute;dients naturels.<\/p>\n<p><strong>Partage :<\/strong>&nbsp;nous mettons nos formules &agrave; la disposition de tous.<\/p>\n<p><strong>Humaine :<\/strong>&nbsp;nous r&eacute;pondons &agrave; vos questions sous 3 jours et vous accompagnons jusqu'&agrave; trouver la solution naturelle ad&eacute;quate pour votre peau.<\/p>\n<p><strong>Transparence :<\/strong>&nbsp;nos produits sont pour la plupart conditionn&eacute;s dans des flacons ou pots en verre, garants de leur int&eacute;grit&eacute; et de leur qualit&eacute;.<\/p>\n<p><strong>Fra&icirc;cheur :<\/strong>&nbsp;comme tout ingr&eacute;dient naturel, l'efficacit&eacute; des huiles v&eacute;g&eacute;tales diminue avec le temps. Nous vendons donc nos produits sous 3 mois apr&egrave;s leur fabrication.<\/p>",
           "button_label": "Plus d'informations sur Oleassence",
           "button_link": "shopify:\/\/pages\/qui-sommes-nous"
         }
@@ -496,11 +550,12 @@
       },
       "1556114019297": {
         "type": "custom-html",
+        "disabled": true,
         "blocks": {
           "1556114019297-0": {
             "type": "html",
             "settings": {
-              "code": "<div class=\"usp_container\">\n\t<div class=\"usp_cell usp_cell_left\">\n\t\t<div class=\"usp_cell_img\"><img src=\"\/\/cdn.shopify.com\/s\/files\/1\/0074\/4095\/7495\/files\/icon-france.svg\"><\/div>\n\t\t<span>Fabrication artisanale Française<\/span>\n\t<\/div>\n\t<div class=\"usp_cell\">\n\t\t<div class=\"usp_cell_img\"><img src=\"\/\/cdn.shopify.com\/s\/files\/1\/0074\/4095\/7495\/files\/icon-drop.svg\"><\/div>\n\t\t<span>Huiles Végétales sélectionnées et extraites à froid<\/span>\n\t<\/div>\n<\/div>",
+              "code": "<div class=\"usp_container\">\n\t<div class=\"usp_cell usp_cell_left\">\n\t\t<div class=\"usp_cell_img\"><img src=\"\/\/cdn2.shopify.com\/s\/files\/1\/0074\/4095\/7495\/files\/icon-france-2.svg\"><\/div>\n\t\t<span>Fabrication artisanale Française<\/span>\n\t<\/div>\n\t<div class=\"usp_cell\">\n\t\t<div class=\"usp_cell_img\"><img src=\"\/\/cdn2.shopify.com\/s\/files\/1\/0074\/4095\/7495\/files\/icon-drop-2.svg\"><\/div>\n\t\t<span>Huiles Végétales sélectionnées et extraites à froid<\/span>\n\t<\/div>\n<\/div>",
               "width": "100%"
             }
           }
@@ -519,15 +574,96 @@
       "page-retailers-template": {
         "type": "page-retailers-template",
         "settings": {}
+      },
+      "list-collections": {
+        "type": "list-collections",
+        "settings": {
+          "products-per-collection": "3",
+          "hover-effect": "zoom",
+          "match-height": false,
+          "show_reviews": true
+        }
+      },
+      "1567154632843": {
+        "type": "custom-html",
+        "blocks": {
+          "1567154632843-0": {
+            "type": "html",
+            "settings": {
+              "code": "<div class=\"usp2_container\">\n\t<div class=\"usp2_cell usp2_cell_left\">\n\t\t<div class=\"usp2_cell_img\"><img src=\"\/\/cdn2.shopify.com\/s\/files\/1\/0074\/4095\/7495\/files\/icon-france-2-g.svg\"><\/div>\n\t\t<span>Fabrication<br><strong>artisanale Française<\/strong><\/span>\n\t<\/div>\n\t<div class=\"usp2_cell usp2_cell_left\">\n\t\t<div class=\"usp2_cell_img\"><img src=\"\/\/cdn2.shopify.com\/s\/files\/1\/0074\/4095\/7495\/files\/icon-drop-2-g.svg\"><\/div>\n\t\t<span>Huiles végétales Bio<br><strong>extraites à froid<\/strong><\/span>\n\t<\/div>\n\t<div class=\"usp2_cell\">\n\t\t<div class=\"usp2_cell_img\"><img src=\"\/\/cdn2.shopify.com\/s\/files\/1\/0074\/4095\/7495\/files\/icon-tube-g.svg\"><\/div>\n\t\t<span>Formulés par<br><strong>nos pharmaciennes<\/strong><\/span>\n\t<\/div>\n<\/div>",
+              "width": "100%"
+            }
+          }
+        },
+        "block_order": [
+          "1567154632843-0"
+        ],
+        "settings": {}
+      },
+      "1567411122140": {
+        "type": "custom-html",
+        "blocks": {
+          "1567411122140-0": {
+            "type": "html",
+            "settings": {
+              "code": "<div class=\"ctg_container\">\n\t<div class=\"ctg_title title_bar\"><h2>Nos gammes de produits<\/h2><\/div>\n\t<div class=\"ctg_content\">\n\t\t<a href=\"\/collections\/gamme-oleassence-en-luberon\" alt=\"Gamme Oleassence en Luberon\">\n\t\t\t<div class=\"ctg_block\">\n\t\t\t\t<img src=\"\/\/cdn.shopify.com\/s\/files\/1\/0074\/4095\/7495\/files\/cat_oel.png\">\n\t\t\t\t<span>Gamme Oleassence en Luberon<\/span>\n\t\t\t\t<p>Nos soins dermo-cosmétiques réunissant les meilleures solutions naturelles &amp; bio.<\/p>\n\t\t\t<\/div>\n\t\t<\/a>\n\t\t<a href=\"\/collections\/huiles-vegetales\" alt=\"Huiles et beurres végétaux\">\n\t\t\t<div class=\"ctg_block\">\n\t\t\t\t<img src=\"\/\/cdn.shopify.com\/s\/files\/1\/0074\/4095\/7495\/files\/cat_hbv.png\">\n\t\t\t\t<span>Huiles et beurres végétaux<\/span>\n\t\t\t\t<p>Des huiles et beurres de qualité premium pour améliorer les peaux à problèmes.<\/p>\n\t\t\t<\/div>\n\t\t<\/a>\n\t\t<a href=\"\/collections\/huiles-essentielles\" alt=\"Huiles essentielles\">\n\t\t\t<div class=\"ctg_block\">\n\t\t\t\t<img src=\"\/\/cdn.shopify.com\/s\/files\/1\/0074\/4095\/7495\/files\/cat_he.png\">\n\t\t\t\t<span>Huiles essentielles<\/span>\n\t\t\t\t<p>Des huiles essentielles de qualité premium pour vos préparations cosmétiques.<\/p>\n\t\t\t<\/div>\n\t\t<\/a>\n\t<\/div>\n<\/div>",
+              "width": "100%"
+            }
+          }
+        },
+        "block_order": [
+          "1567411122140-0"
+        ],
+        "settings": {}
+      },
+      "1567497745706": {
+        "type": "values",
+        "settings": {
+          "heading": "Nos 5 valeurs fondamentales",
+          "link1": "shopify:\/\/pages\/qui-sommes-nous",
+          "title1": "Scientifique",
+          "content1": "Formulées par nos pharmaciennes, nos soins ont été étudiés selon la composition moléculaire des ingrédients naturels et leurs propriétés sur la peau.",
+          "link2": "shopify:\/\/pages\/qui-sommes-nous",
+          "title2": "Partage",
+          "content2": "Toutes nos formules sont à votre disposition sur notre blog www.oleassence.fr",
+          "link3": "shopify:\/\/pages\/qui-sommes-nous",
+          "title3": "Humaine",
+          "content3": "Nous vous conseillons et répondons à vos questions sous 2 jours et vous accompagnons jusqu'à trouver la solution naturelle adéquate pour votre peau.",
+          "link4": "shopify:\/\/pages\/qui-sommes-nous",
+          "title4": "Raisonnée",
+          "content4": "Nous avons choisi des emballages recyclables à 95% en verre, garants de la neutralité contenu-contenant.",
+          "link5": "shopify:\/\/pages\/qui-sommes-nous",
+          "title5": "Fraîcheur",
+          "content5": "Comme tout ingrédient naturel, l'efficacité des huiles végétales diminue avec le temps. Nos soins sont fabriqués en petite série en France afin de proposer les actifs les plus frais possible."
+        }
+      },
+      "1567514129213": {
+        "type": "custom-html",
+        "blocks": {
+          "1567514129213-0": {
+            "type": "html",
+            "settings": {
+              "code": "<div class=\"twoparts_container\">\n\t<div class=\"twoparts_block\">\n\t\t<img src=\"\/\/cdn.shopify.com\/s\/files\/1\/0074\/4095\/7495\/files\/news_brochure.jpg\" alt=\"Recevez la brochure offerte pour vos soins naturels\">\n\t\t<a href=\"https:\/\/mailchi.mp\/oleassence.com\/pour-une-beaute-naturelle\">Téléchargez notre guide offert pour des soins naturels<\/a>\n\t<\/div>\n\t<div class=\"twoparts_block\">\n\t\t<img src=\"\/\/cdn.shopify.com\/s\/files\/1\/0074\/4095\/7495\/files\/conseils.jpg\" alt=\"Posez-nous vos question !\">\n\t\t<span>Quels sont les besoins de votre peau ?<\/span>\n\t\t<a href=\"\/pages\/posez-nous-vos-questions\">Posez vos questions aux pharmaciennes Oleassence<\/a>\n\t<\/div>\n<\/div>",
+              "width": "100%"
+            }
+          }
+        },
+        "block_order": [
+          "1567514129213-0"
+        ],
+        "settings": {}
       }
     },
     "content_for_index": [
       "1556114019297",
+      "1567154632843",
       "slideshow",
+      "1567411122140",
       "collection-list",
+      "1567514129213",
+      "1567497745706",
       "testimonials",
       "1554279384401",
-      "newsletter",
       "1554220126786",
       "1554279023092"
     ]

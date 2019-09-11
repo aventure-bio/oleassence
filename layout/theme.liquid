@@ -72,7 +72,8 @@
   <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.4/mapbox-gl-geocoder.min.js'></script>
   <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.4/mapbox-gl-geocoder.css' type='text/css' />
 
-</head>
+
+	<link href='https://s3.us-east-2.amazonaws.com/ekoma/ekoma.css.gz' rel='stylesheet' type='text/css' media='all' /></head>
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} flexbox-wrapper{% unless settings.animations_enabled %} animations-disabled{% endunless %}">
 
@@ -144,6 +145,9 @@
 
  {% include 'smile-initializer' %}
 
+
+
+	{% include 'ekoma' %}
 </body>
 
 </html>

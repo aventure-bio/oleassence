@@ -6,6 +6,11 @@
       	<h2>{{ 'customer.login.title' | t }}</h2>
 		<div class="clear"></div>
 	</div>
+    <div class="customer-account-popin">
+      <span>Information importante relative à votre compte</span>
+      <p>&Agrave; partir du XX octobre 2019, le site Oleassence évolue pour se moderniser et s'adapter au mieux à vos attentes.</p>
+      <p>Ce changement va entraîner une mise à jour des mots de passe. Si vous ne l'avez pas déjà fait, nous allons vous inviter à choisir un nouveau mot de passe.</p>
+    </div>
 
     {% form 'customer_login' %}
       {{ form.errors | default_errors }}
@@ -24,8 +29,8 @@
       {% endif %}
 
       <div class="action-bottom">
-        <input class="btn btn-success" type="submit" value="{{ 'customer.login.sign_in' | t }}" />
-        <a class="btn btn-success" href="/account/register">{{ 'customer.register.title' | t }}</a>
+        <input class="btn btn-success oleo-btn" type="submit" value="{{ 'customer.login.sign_in' | t }}" style="margin-top: 10px;" />
+        <a class="btn btn-success oleo-btn" href="/account/register" style="margin-top: 10px;">{{ 'customer.register.title' | t }}</a>
       </div>
 
 
@@ -58,7 +63,7 @@
           <input type="email" class="form-control" placeholder="{{ 'customer.login.email' | t }}"  size="30" name="email" id="recover-email" />
         </div>
         <div class="action-bottom">
-          <input class="btn btn-success" type="submit" value="{{ 'customer.recover_password.submit' | t }}" />
+          <input class="btn btn-success oleo-btn" type="submit" value="{{ 'customer.recover_password.submit' | t }}" />
         </div>
       {% endform %}
     </div>

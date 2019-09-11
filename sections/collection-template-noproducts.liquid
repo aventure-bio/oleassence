@@ -1,0 +1,29 @@
+<div class="container">
+
+{%- assign limit = section.settings.grid | times: section.settings.rows -%}
+{% paginate collection.products by limit %}
+
+<div data-section-id="{{ section.id }}" data-section-type="collection-template">
+
+<div id="collections-main" class="{{ collection.handle }}">
+
+<div class="title-bar custom-font collection-header">
+	{% if collection.handle == 'all' %}
+		<h2>{{ 'products.general.products_title' | t }}</h2>
+	{% else %}
+		<h2>{{ collection.title }}</h2>
+	{% endif %}
+	<div class="clear"></div>
+</div>
+
+	{% if collection.description != empty %}
+		<div class="description-content">{{ collection.description }}</div>
+	{% endif %}
+</div>
+
+</div>
+
+
+{% endpaginate %}
+
+</div>

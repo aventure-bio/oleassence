@@ -12,6 +12,15 @@
 <div class="col-lg-4 col-lg-offset-4">
 
 	    {% form 'create_customer' %}
+  			{% if form.errors and form.errors contains "form" %}
+  				{% capture error_output %}{{ form.errors | default_errors }}{% endcapture %}
+  				{% capture verify_email %}{{ 'shopify.errors.verify_email' | t: customer_email: "*" | split: "*" | first }}{% endcapture %}
+  				{% if error_output contains verify_email %}
+  					<script>
+                      window.location = "/pages/validation-email";
+  					</script>
+  				{% endif %}
+            {% endif %}
 	      {{ form.errors | default_errors }}
 
 	      <div id="first_name" class="clearfix large_form">
@@ -61,7 +70,7 @@
 
 
 	      <div class="action_bottom">
-	        <input class="btn btn-success" type="submit" value="{{ 'customer.register.submit' | t }}" />
+	        <input class="btn btn-success oleo-btn" type="submit" value="{{ 'customer.register.submit' | t }}" />
 	      </div>
 	    {% endform %}
 

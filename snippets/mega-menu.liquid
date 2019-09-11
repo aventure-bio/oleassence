@@ -26,7 +26,10 @@
     <li class="dropdown-submenu {{ grid_item_width }}" aria-haspopup="true">
       <div class="inner">
         <p class="h4"><a href="{{ sub_link.url }}">{{ sub_link.title | escape }}</a></p>
-        <ul class="menu-link">
+        {% for sub_sub_link in sub_link.links %}
+        {% if sub_sub_link.url contains '/products/' %}{% assign columnizable = 'columnizable' %}{% else %}{% assign columnizable = '' %}{% endif %}
+        {% endfor %}
+        <ul class="menu-link {{ columnizable }}">
           {% for sub_sub_link in sub_link.links %}
             <li>
               <a href="{{ sub_sub_link.url }}">{{ sub_sub_link.title | escape }}</a>

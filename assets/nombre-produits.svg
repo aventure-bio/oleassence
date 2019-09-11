@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 875 1042.5">
+	<defs>
+		<style>.nombre-produits-cls{fill:#fff;stroke:#505050;stroke-miterlimit:10;stroke-width:60px;}</style>
+	</defs>
+	<title>Nombre de produits</title>
+	<g id="nombre-produits" data-name="nombre-produits">
+		<path class="nombre-produits-cls" d="M685,222s13-.5,29,8c19,9.5,16,28,16,28v48s1,41.5,2,51,8,38,8,38l27,2s3,2.5,3,5V559s59,6,68,9c7,2.5,7,12,7,12l-1,395.5s-1,9-8,15c-20,22-145,22-145,22H679s-125,0-145-22c-7-6-8-15-8-15L525,580s0-9.5,7-12c9-3,68-9,68-9V402c0-2.5,3-5,3-5l27-2s7-28.5,8-38,2-51,2-51V258s-3-18.5,16-28C672,221.5,685,222,685,222Z"/>
+		<path class="nombre-produits-cls" d="M246,30l32,3s17,2.5,17,5V175s79,8,88,11c7,2.5,7,12,7,12l-1,772.5s-1,9-8,15c-20,22-145,27-145,27H184s-125-5-145-27c-7-6-8-15-8-15L30,198s0-9.5,7-12c9-3,88-11,88-11V38c0-2.5,18-5,18-5l33-3Z"/>
+	</g>
+</svg>
